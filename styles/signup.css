@@ -1,0 +1,46 @@
+form {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 50px; }
+  form input {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 15px; }
+  form button[type=submit] {
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    border: 1px solid #4CAF50; }
+    form button[type=submit]:hover {
+      background-color: #fff;
+      color: #4CAF50; }
+
+.alert {
+  padding: 20px;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+  margin-top: 10px; }
+
+.successful {
+  background-color: #4CAF50; }
+
+.fail {
+  background-color: #f44336; }
+
+.btnclose {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s; }
+  .btnclose:hover {
+    color: #000; }
+
+/*# sourceMappingURL=signup.css.map */

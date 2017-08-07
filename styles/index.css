@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0; }
+  body article {
+    margin: auto; }
+    body article h1 {
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 4em;
+      color: #58595B; }
+    body article p {
+      font-size: 1.4em;
+      line-height: 1.5;
+      color: #58595B; }
+
+* {
+  font-family: 'Dosis', sans-serif; }
+  *::selection {
+    background-color: #272822;
+    color: #fff; }
+  *::-moz-selection {
+    background-color: #272822;
+    color: #fff; }
+
+@media screen and (max-width: 500px) {
+  article {
+    width: 300px; } }
+@media screen and (min-width: 501px) {
+  article {
+    max-width: 500px; } }
+
+/*# sourceMappingURL=index.css.map */
