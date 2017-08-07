@@ -72,7 +72,7 @@ header {
 
 		span {
 			height: 3px;
-			background-color: #000;
+			background-color: #fff;
 			width: 100%;
 			position: absolute;
 			top: 20px;
@@ -81,7 +81,7 @@ header {
 			&::before {
 				content: '';
 				height: 3px;
-				background-color: #000;
+				background-color: #fff;
 				width: 100%;
 				position: absolute;
 				top: -10px;
@@ -91,7 +91,7 @@ header {
 			&::after {
 				content: '';
 				height: 3px;
-				background-color: #000;
+				background-color: #fff;
 				width: 100%;
 				position: absolute;
 				top: 10px;

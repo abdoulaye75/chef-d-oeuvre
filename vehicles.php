@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +10,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
 	<link rel="icon" type="image/jpg" href="views/img/rent_car.jpg">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="views/js/nav.js"></script>
 </head>
 <body>
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/vehicleCtrl.php';
 	$vehicles = new VehicleCtrl();
 	$vehicles->showVehicles(); ?>
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="views/js/nav.js"></script>
 </body>
 </html>
