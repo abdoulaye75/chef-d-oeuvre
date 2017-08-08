@@ -1,6 +1,6 @@
 <?php
 
-class Accompanist
+class AccompagnistView
 {
 	public $name = "";
 	public $firstname = "";
@@ -17,7 +17,7 @@ class Accompanist
 	public function displaySignupForm()
 	{
 		echo '<form action="" method="post">
-			<h1> Jeune conducteur </h1>
+			<h1> Accompagnateur </h1>
 
 			<label for="lastname"> Nom: </label>
 			<input type="text" name="lastname" id="lastname" required class="form-control">
@@ -40,7 +40,7 @@ class Accompanist
 
 	public function displayLoginForm() {
 		echo '<form action="" method="post">
-			<h1> Jeune conducteur </h1>
+			<h1> Accompagnateur </h1>
 
 			<label for="login"> Identifiant: </label>
 			<input type="text" name="login" id="login" required>

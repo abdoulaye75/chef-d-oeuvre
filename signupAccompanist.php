@@ -13,10 +13,13 @@
 </head>
 <body>
 	<?php require 'views/nav.php'; ?>
-	<?php
-
-
-
+	<?php require 'controller/monitorCtrl.php';
+		$monitorCtrl = new AccompagnistCtrl();
+		
+		$monitorCtrl->monitorSignupForm();
 	?>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="views/js/nav.js"></script>
 </body>
 </html>
