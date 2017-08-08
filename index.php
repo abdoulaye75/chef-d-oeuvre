@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="styles/nav.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="icon" type="image/jpg" href="views/img/rent_car.jpg">
 </head>
 <body>

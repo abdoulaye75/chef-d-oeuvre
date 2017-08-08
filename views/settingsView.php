@@ -13,7 +13,7 @@ class SettingsView
 	public function displayFormUpdateSettings($id) {
 		while($data = $id->fetch()) {
 		echo '<form action="" method="post">
-			<caption> <h2> Modifier mes identifiants </h2> <caption>
+			<caption> <h2> Modifier mes identifiants </h2> </caption>
 			<input type="hidden" name="id" value="'.$data['id'].'">
 			<label for="mail"> Mail : </label>
 			<input type="email" name="mail" id="name" value="'.$data['mail'].'">

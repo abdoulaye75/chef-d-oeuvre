@@ -1,4 +1,11 @@
 @charset "UTF-8";
+.navlink, header .navbar ul li .navlink, header .navbar ul .dropdown .dropdown-content a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase; }
+
 header {
   width: 100%;
   background-image: url("../views/img/rent_car.jpg");
@@ -22,12 +29,24 @@ header {
       header .navbar ul li {
         list-style-type: none;
         padding: 15px; }
-        header .navbar ul li .navlink {
-          text-decoration: none;
-          color: #fff;
-          font-size: 18px;
-          font-weight: bold;
-          text-transform: uppercase; }
+      header .navbar ul .dropdown {
+        float: left;
+        overflow: hidden; }
+        header .navbar ul .dropdown i {
+          position: absolute; }
+        header .navbar ul .dropdown .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #000;
+          z-index: 1; }
+          header .navbar ul .dropdown .dropdown-content a {
+            display: block;
+            padding: 12px 20px; }
+            header .navbar ul .dropdown .dropdown-content a:hover {
+              background-color: #fff;
+              color: #000; }
+          header .navbar ul .dropdown .dropdown-content .show {
+            display: block; }
 
 @media screen and (max-width: 770px) {
   .navbar {
@@ -35,7 +54,7 @@ header {
     height: 330px;
     background-color: #fff; }
 
-  .navlink {
+  .navlink, header .navbar ul li .navlink, header .navbar ul .dropdown .dropdown-content a {
     display: none; }
 
   .navbar ul {
@@ -45,7 +64,7 @@ header {
   /* correspond au menu déroulant sur petits supports */
   .responsive {
     background-color: #fff; }
-    .responsive .navlink {
+    .responsive .navlink, .responsive header .navbar ul li .navlink, header .navbar ul li .responsive .navlink, .responsive header .navbar ul .dropdown .dropdown-content a, header .navbar ul .dropdown .dropdown-content .responsive a {
       float: none;
       display: block;
       text-align: center;
