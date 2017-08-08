@@ -16,11 +16,18 @@
 <body>
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/settingsCtrl.php'; ?>
-	<?php 
-		$settings = new SettingsCtrl();
-		$settings->updateSettings($id, $mail, $login, $password);
-		$settings->listOneDriver();
-		$settings->deleteAccount();
+	<?php
+		if (isset($_SESSION['login'], $_SESSION['password'])) {
+			$settings = new SettingsCtrl();
+			$settings->updateSettings($id, $mail, $login, $password);
+			$settings->listOneDriver();
+			$settings->deleteAccount();
+		} elseif (isset($_SESSION['loginAccompagnist'], $_SESSION['passwordAccompagnist'])) {
+			$settingsAccompagnist = new SettingsCtrl();
+			$settingsAccompagnist->updateSettingsAccompagnist($id, $mail, $login, $password);
+			$settingsAccompagnist->listOneAccompagnist();
+			$settingsAccompagnist->deleteAccountAccompagnist();
+		}
 	?>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

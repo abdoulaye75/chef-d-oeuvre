@@ -37,6 +37,24 @@ class SettingsModel
 		$req->execute(array('login' => $login));
 		return $req;
 	}
+
+	public function updateIdentifiersAccompagnists($id, $mail, $login, $password) {
+		$req = $this->bdd->prepare("UPDATE monitors SET mail = :nvmail, login = :nvlogin, password = :nvpassword WHERE id = :id");
+		$req->execute(array('nvmail' => $mail, 'nvlogin' => $login, 'nvpassword' => $password, 'id' => $id));
+		return $req;
+	}
+
+	public function getIdAccompagnist() {
+		$req = $this->bdd->prepare("SELECT id, mail, login, password FROM monitors WHERE login = :login");
+		$req->execute(array('login' => $_GET['login']));
+		return $req;
+	}
+
+	public function removeAccompagnist($login) {
+		$req = $this->bdd->prepare("DELETE FROM monitors WHERE login = :login");
+		$req->execute(array('login' => $login));
+		return $req;
+	}
 }
 
 ?>

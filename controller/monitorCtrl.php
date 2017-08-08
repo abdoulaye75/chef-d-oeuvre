@@ -44,12 +44,12 @@ class AccompagnistCtrl
 				$login = htmlspecialchars($_POST['login']);
 				$password = $_POST['password'];
 				$monitors = $this->monitorModel->connectAccompagnist($login, $password);
-				$noConnect = $this->AccompagnistView->noConnect();
+				$noConnect = $this->monitorView->noConnect();
 
 				foreach ($monitors as $monitor) {
 					if ($login !== $monitor['login'] || $password !== $monitor['password']) {
 						$noConnect;
-						header('Location: login.php');
+						header('Location: loginAccompanist.php');
 					} else {
 						session_start();
 						$_SESSION['loginAccompagnist'] = $login;
@@ -60,6 +60,21 @@ class AccompagnistCtrl
 				}
 			}
 		}
+	}
+
+	public function tableSessions() {
+		$eachSession = $this->monitorModel->listSessions();
+		$this->monitorView->displayTableSessions($eachSession);
+	}
+
+	public function logout() {
+		session_start();
+
+		$_SESSION = array();
+
+		session_destroy();
+
+		header("Location: index.php"); // on redirige l'utilisateur vers la page d'accueil
 	}
 }
 

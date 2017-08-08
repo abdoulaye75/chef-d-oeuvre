@@ -58,7 +58,7 @@ class Driver
 	}
 
 	public function displayTableReservations($eachReservation) {
-		echo '<table class="table table-bordered table-striped table-responsive">
+		echo '<table>
 		<caption> <h2> Mes réservations </h2> </caption>
 		<thead>
 			<tr>

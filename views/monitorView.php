@@ -55,6 +55,40 @@ class AccompagnistView
 	public function noConnect() {
 		echo '<div class="alert fail"><span class="btnclose">&times;</span><strong>Utilisateur inconnu ! Vérifiez bien votre identifiant et votre mot de passe !</strong></div>';
 	}
+
+	public function displayTableSessions($eachSession) {
+		echo '<table>
+		<caption> <h2> Mes séances </h2> </caption>
+		<thead>
+			<tr>
+				<th> Date </th>
+				<th> Heure début </th>
+				<th> Heure de fin </th>
+				<th> Modifier </th>
+				<th> Annuler </th>
+			</tr>
+		</thead>
+		<tbody>';
+		while ($data = $eachSession->fetch()) {
+			echo '<tr>
+					<td>'.$data['date'].'</td>
+					<td>'.$data['timeStart'].'</td>
+					<td>'.$data['timeEnd'].'</td>
+					<td>';
+					$updateSessions = array($data);
+					foreach ($updateSessions as $updateSession) {
+						echo '<a href=""> Modifier </a>';
+					} echo '</td>
+					<td>';
+					$deleteSessions = array($data);
+					foreach ($deleteSessions as $deleteSession) {
+						echo '<a href=""> Annuler </a>';
+					} echo '</td>
+				</tr>';
+		} $eachSession->closeCursor();
+		echo '</tbody>
+		</table>';
+	}
 }
 
 ?>

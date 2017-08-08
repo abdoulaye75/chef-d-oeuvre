@@ -12,6 +12,11 @@
 				<li> <?php echo '<a href="settings.php?login='.$_SESSION['login'].'" class="navlink"> Paramètres du compte </a>'; ?> </li>
 				<li> <?php echo '<a href="logout.php" class="navlink"> Se déconnecter </a>'; ?> </li>
 			<?php }
+			elseif (isset($_SESSION['loginAccompagnist'], $_SESSION['passwordAccompagnist'])) { ?>
+				<li> <?php echo '<a href="sessions.php" class="navlink"> Mes séances </a>'; ?> </li>
+				<li> <?php echo '<a href="settings.php?login='.$_SESSION['loginAccompagnist'].'" class="navlink"> Paramètres du compte </a>'; ?> </li>
+				<li> <?php echo '<a href="logout.php" class="navlink"> Se déconnecter </a>'; ?> </li>
+			<?php }
 			else { ?> 
 				<div class="dropdown" id="dropdown1">
 					<li> <?php echo '<a href="#" class="navlink dropbtn"> S\'inscrire <i class="material-icons">&#xe5c5;</i> </a>'; ?> </li>
