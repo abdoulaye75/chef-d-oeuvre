@@ -8,40 +8,26 @@ class ReservationView
 		# code...
 	}
 
-	public function displayReservations($eachReservation) {
-		return '<table>
-			<caption> <h2> Mes réservations de location </h2> </caption>
-			<thead>
-				<tr>
-					<th> Date début </th>
-					<th> Heure début </th>
-					<th> Date retour </th>
-					<th> Heure retour </th>
-					<th> Modifier </th>
-					<th> Annuler </th>
-				</tr>
-			</thead>
-			<tbody>';
-			while ($reservation = $eachReservation->fetch()) {
-				echo '<tr>
-					<td>'.$reservation['date_rent'].'</td>
-					<td>'.$reservation['timeRent'].'</td>
-					<td>'.$reservation['dateBack'].'</td>
-					<td>'.$reservation['timeBack'].'</td>
-					<td>';
-					$updateReservations = array($reservation);
-					foreach ($updateReservations as $updateReservation) {
-						echo '<a href=""> Modifier </a>';
-					}'</td>
-					<td>';
-					$cancelReservations = array($reservation);
-					foreach ($cancelReservations as $cancelReservation) {
-						echo '<a href=""> Annuler </a>';
-					}'</td>
-					</tr>';
-			} $eachReservation->closeCursor();
-			echo '</tbody>
-		</table>';
+	public function displayFormReservation () {
+		echo '<form action="" method="post">
+			<label for="date"> Date début </label>
+			<input type="text" required name="date" id="date">
+
+			<label for="timeRent"> Heure début </label>
+			<input type="text" required name="timeRent" id="timeRent">
+
+			<label for="dateBack"> Date de retour </label>
+			<input type="text" required name="dateBack" id="dateBack">
+
+			<label for="timeBack"> Heure de fin </label>
+			<input type="text" required name="timeBack" id="timeBack">
+
+			<button type="submit" name="submit"> Louer </button>
+		</form>';
+	}
+
+	public function confirmAdd() {
+		echo '<div class="alert successful"><span class="btnclose">&times;</span><strong> Location effectuée </strong></div>';
 	}
 }
 

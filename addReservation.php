@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title> Mes réservations </title>
+	<title> Louer un véhicule </title>
 	<link rel="stylesheet" type="text/css" href="styles/index.css">
 	<link rel="stylesheet" type="text/css" href="styles/nav.css">
 	<link rel="stylesheet" type="text/css" href="styles/reservations.css">
@@ -13,18 +13,10 @@
 </head>
 <body>
 	<?php require 'views/nav.php'; ?>
-	<?php require 'controller/driverCtrl.php'; ?>
-	<?php require 'controller/sessionCtrl.php'; ?>
-	<?php session_start();
-	 if (isset($_SESSION['login'], $_SESSION['password'])) {
-		echo '<div class="alert successful"><span class="btnclose">&times;</span><strong> Bienvenue, '.$_SESSION['login'].' !</strong></div>';
-	}
-
-	$sessions = new SessionCtrl();
-	$sessions->displayButtonAddSession();
-	$sessions->displayButtonAddRent();
-	$reservations = new DriverCtrl();
-	$reservations->tableReservations();
+	<?php require 'controller/reservationCtrl.php';
+		$reservations = new ReservationCtrl();
+		$reservations->addReservation($date, $timeRent, $dateBack, $timeBack);
+		$reservations->formAddReservation();
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="views/js/nav.js"></script>

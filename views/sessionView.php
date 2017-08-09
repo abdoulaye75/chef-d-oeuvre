@@ -36,7 +36,11 @@ class SessionView
 	}
 
 	public function displayButtonAdd() {
-		echo '<a href="addSession.php"> Réserver une séance </a>';
+		echo '<a href="addSession.php"> Réserver une séance de conduite </a>';
+	}
+
+	public function displayButtonAddRent() {
+		echo '<a href="addReservation.php"> Louer un véhicule </a>';
 	}
 
 	public function displayFormAdd() {

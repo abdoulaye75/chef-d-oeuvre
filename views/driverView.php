@@ -73,7 +73,7 @@ class Driver
 		<tbody>';
 		while ($data = $eachReservation->fetch()) {
 			echo '<tr>
-					<td>'.$data['date_rent'].'</td>
+					<td>'.$data['dateRent'].'</td>
 					<td>'.$data['timeRent'].'</td>
 					<td>'.$data['dateBack'].'</td>
 					<td>'.$data['timeBack'].'</td>

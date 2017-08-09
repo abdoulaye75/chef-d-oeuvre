@@ -23,6 +23,10 @@ class SessionCtrl
 		$this->sessionView->displayButtonAdd();
 	}
 
+	public function displayButtonAddRent() {
+		$this->sessionView->displayButtonAddRent();
+	}
+
 	public function formCreateSession() {
 		$this->sessionView->displayFormAdd();
 	}
