@@ -62,11 +62,6 @@ class AccompagnistCtrl
 		}
 	}
 
-	public function tableSessions() {
-		$eachSession = $this->monitorModel->listSessions();
-		$this->monitorView->displayTableSessions($eachSession);
-	}
-
 	public function logout() {
 		session_start();
 

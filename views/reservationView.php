@@ -10,7 +10,7 @@ class ReservationView
 
 	public function displayReservations($eachReservation) {
 		return '<table>
-			<caption> <h2> Mes réservations </h2> </caption>
+			<caption> <h2> Mes réservations de location </h2> </caption>
 			<thead>
 				<tr>
 					<th> Date début </th>

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title> Mes séances </title>
+	<title> Animer une séance </title>
 	<link rel="stylesheet" type="text/css" href="styles/index.css">
 	<link rel="stylesheet" type="text/css" href="styles/nav.css">
 	<link rel="stylesheet" type="text/css" href="styles/reservations.css">
@@ -13,15 +13,10 @@
 </head>
 <body>
 	<?php require 'views/nav.php'; ?>
-	<?php require 'controller/sessionCtrl.php'; ?>
-	<?php session_start();
-	 if (isset($_SESSION['loginAccompagnist'], $_SESSION['passwordAccompagnist'])) {
-		echo '<div class="alert successful"><span class="btnclose">&times;</span><strong> Bienvenue, '.$_SESSION['loginAccompagnist'].' !</strong></div>';
-	}
-
-	$sessions = new SessionCtrl();
-	$sessions->tableSessions();
-
+	<?php require 'controller/sessionCtrl.php';
+		$addSession = new SessionCtrl();
+		$addSession->addSession($date, $timeStart, $timeEnd);
+		$addSession->formCreateSession();
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="views/js/nav.js"></script>

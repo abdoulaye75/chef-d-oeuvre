@@ -31,12 +31,6 @@ class AccompagnistModel
 		$req->execute(array('login' => $login, 'password' => $password));
 		return $req;
 	}
-
-	public function listSessions() {
-		$req = $this->bdd->prepare("SELECT * FROM sessions");
-		$req->execute(array());
-		return $req;
-	}
 }
 
 ?>

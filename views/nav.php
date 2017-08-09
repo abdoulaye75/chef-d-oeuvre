@@ -13,7 +13,7 @@
 				<li> <?php echo '<a href="logout.php" class="navlink"> Se déconnecter </a>'; ?> </li>
 			<?php }
 			elseif (isset($_SESSION['loginAccompagnist'], $_SESSION['passwordAccompagnist'])) { ?>
-				<li> <?php echo '<a href="sessions.php" class="navlink"> Mes séances </a>'; ?> </li>
+				<li> <?php echo '<a href="sessions.php" class="navlink"> Les séances </a>'; ?> </li>
 				<li> <?php echo '<a href="settings.php?login='.$_SESSION['loginAccompagnist'].'" class="navlink"> Paramètres du compte </a>'; ?> </li>
 				<li> <?php echo '<a href="logout.php" class="navlink"> Se déconnecter </a>'; ?> </li>
 			<?php }

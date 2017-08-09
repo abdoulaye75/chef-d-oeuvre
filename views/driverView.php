@@ -59,7 +59,7 @@ class Driver
 
 	public function displayTableReservations($eachReservation) {
 		echo '<table>
-		<caption> <h2> Mes réservations </h2> </caption>
+		<caption> <h2> Mes réservations de location </h2> </caption>
 		<thead>
 			<tr>
 				<th> Date début </th>
