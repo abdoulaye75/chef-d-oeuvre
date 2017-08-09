@@ -92,6 +92,40 @@ class Driver
 		echo '</tbody>
 		</table>';
 	}
+
+	public function displayTableSessions($eachSession) {
+		echo '<table>
+		<caption> <h2> Mes séances de conduite </h2> </caption>
+		<thead>
+			<tr>
+				<th> Date début </th>
+				<th> Heure début </th>
+				<th> Heure retour </th>
+				<th> Modifier </th>
+				<th> Annuler </th>
+			</tr>
+		</thead>
+		<tbody>';
+		while ($data = $eachSession->fetch()) {
+			echo '<tr>
+					<td>'.$data['dateSession'].'</td>
+					<td>'.$data['timeStart'].'</td>
+					<td>'.$data['timeEnd'].'</td>
+					<td>';
+					$updateSessions = array($data);
+					foreach ($updateSessions as $updateSession) {
+						echo '<a href=""> Modifier </a>';
+					} echo '</td>
+					<td>';
+					$deleteSessions = array($data);
+					foreach ($deleteSessions as $deleteSession) {
+						echo '<a href=""> Annuler </a>';
+					} echo '</td>
+				</tr>';
+		} $eachSession->closeCursor();
+		echo '</tbody>
+		</table>';
+	}
 }
 
 ?>

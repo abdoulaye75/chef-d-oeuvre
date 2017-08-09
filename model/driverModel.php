@@ -38,6 +38,12 @@ class DriverModel
 		$req->execute(array());
 		return $req;
 	}
+
+	public function listSessions() {
+		$req = $this->bdd->prepare("SELECT * FROM sessions");
+		$req->execute(array());
+		return $req;
+	}
 }
 
 ?>

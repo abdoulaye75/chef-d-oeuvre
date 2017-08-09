@@ -68,6 +68,11 @@ class DriverCtrl
 		$this->driverView->displayTableReservations($eachReservation);
 	}
 
+	public function tableSessions() {
+		$eachSession = $this->driverModel->listSessions();
+		$this->driverView->displayTableSessions($eachSession);
+	}
+
 	public function logout() {
 		session_start();
 
