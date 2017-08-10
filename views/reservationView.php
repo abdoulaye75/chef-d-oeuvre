@@ -8,7 +8,7 @@ class ReservationView
 		# code...
 	}
 
-	public function displayFormReservation () {
+	public function displayFormReservation ($vehicle) {
 		echo '<form action="" method="post">
 			<label for="date"> Date début </label>
 			<input type="text" required name="date" id="date">
@@ -22,12 +22,19 @@ class ReservationView
 			<label for="timeBack"> Heure de fin </label>
 			<input type="text" required name="timeBack" id="timeBack">
 
+			<label for="vehicle"> Véhicule souhaité </label>
+			<select name="vehicle" required>';
+			while ($data = $vehicle->fetch()) {
+				echo '<option value="'.$data['id'].'">'.$data['brand'].' '.$data['model'].'</option>';
+			} $vehicle->closeCursor();
+			echo '</select>
+
 			<button type="submit" name="submit"> Louer </button>
 		</form>';
 	}
 
 	public function confirmAdd() {
-		echo '<div class="alert successful"><span class="btnclose">&times;</span><strong> Location effectuée </strong></div>';
+		echo '<div class="alert successful"><span class="btnclose">&times;</span><strong> Location effectuée ! </strong></div>';
 	}
 }
 

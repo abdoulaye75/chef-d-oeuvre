@@ -15,7 +15,7 @@
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/reservationCtrl.php';
 		$reservations = new ReservationCtrl();
-		$reservations->addReservation($date, $timeRent, $dateBack, $timeBack);
+		$reservations->addReservation($date, $timeRent, $dateBack, $timeBack, $vehicle);
 		$reservations->formAddReservation();
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

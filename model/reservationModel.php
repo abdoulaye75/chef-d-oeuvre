@@ -20,9 +20,15 @@ class ReservationModel
         }
 	}
 
-	public function createReservation($date, $timeRent, $dateBack, $timeBack) {
-		$req = $this->bdd->prepare("INSERT INTO reservations (dateRent, timeRent, dateBack, timeBack) VALUES (:dateRent, :timeRent, :dateBack, :timeBack)");
-		$req->execute(array('dateRent' => $date, 'timeRent' => $timeRent, 'dateBack' => $dateBack, 'timeBack' => $timeBack));
+	public function createReservation($date, $timeRent, $dateBack, $timeBack, $vehicle) {
+		$req = $this->bdd->prepare("INSERT INTO reservations (dateRent, timeRent, dateBack, timeBack) VALUES (:dateRent, :timeRent, :dateBack, :timeBack, :vehicle)");
+		$req->execute(array('dateRent' => $date, 'timeRent' => $timeRent, 'dateBack' => $dateBack, 'timeBack' => $timeBack, 'vehicle' => $vehicle));
+		return $req;
+	}
+
+	public function getVehicles() {
+		$req = $this->bdd->prepare("SELECT * FROM vehicles");
+		$req->execute(array());
 		return $req;
 	}
 }
