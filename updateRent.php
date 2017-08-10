@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title> Louer un véhicule </title>
+	<title> Modifier la location </title>
 	<link rel="stylesheet" type="text/css" href="styles/index.css">
 	<link rel="stylesheet" type="text/css" href="styles/nav.css">
 	<link rel="stylesheet" type="text/css" href="styles/reservations.css">
@@ -15,10 +15,11 @@
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/reservationCtrl.php';
 		$reservations = new ReservationCtrl();
-		$reservations->addReservation($date, $timeRent, $dateBack, $timeBack);
-		$reservations->formAddReservation();
-		echo '<a href="reservations.php"> Retour aux tableaux des réservations et séances </a>';
+		$reservations->changeReservation($id, $date, $timeRent, $dateBack, $timeBack);
+		$reservations->listOneReservation();
+		echo '<a href="reservations.php"> Retour aux tableaux des réservations et des séances </a>';
 	?>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="views/js/nav.js"></script>
 	<script src="views/js/form.js"></script>

@@ -31,6 +31,25 @@ class SessionModel
 		$req->execute(array('dateSession' => $date, 'timeStart' => $timeStart, 'timeEnd' => $timeEnd));
 		return $req;
 	}
+
+	public function updateSession($id, $date, $timeStart, $timeEnd) {
+		$req = $this->bdd->prepare("UPDATE sessions SET dateSession = :nvdateSession, timeStart = :nvtimeStart, timeEnd = :nvtimeEnd WHERE id = :id");
+		$req->execute(array('nvdateSession' => $date, 'nvtimeStart' => $timeStart, 'nvtimeEnd' => $timeEnd, 'id' => $id));
+		return $req;
+	}
+
+	public function getIdSession() {
+		$req = $this->bdd->prepare("SELECT * FROM sessions WHERE id = :id");
+		$req->execute(array('id' => $_GET['id']));
+		return $req;
+
+	}
+
+	public function removeSession($id) {
+		$req = $this->bdd->prepare("DELETE FROM sessions WHERE id = :id");
+		$req->execute(array('id' => $id));
+		return $req;
+	}
 }
 
 ?>

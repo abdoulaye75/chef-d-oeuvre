@@ -80,12 +80,12 @@ class Driver
 					<td>';
 					$updateReservations = array($data);
 					foreach ($updateReservations as $updateReservation) {
-						echo '<a href=""> Modifier </a>';
+						echo '<a href="updateRent.php?id='.$data['id'].'"> Modifier </a>';
 					} echo '</td>
 					<td>';
 					$deleteReservations = array($data);
 					foreach ($deleteReservations as $deleteReservation) {
-						echo '<a href=""> Annuler </a>';
+						echo '<a href="deleteReservation.php?id='.$data['id'].'"> Annuler </a>';
 					} echo '</td>
 				</tr>';
 		} $eachReservation->closeCursor();
@@ -114,12 +114,12 @@ class Driver
 					<td>';
 					$updateSessions = array($data);
 					foreach ($updateSessions as $updateSession) {
-						echo '<a href=""> Modifier </a>';
+						echo '<a href="updateSession.php?id='.$data['id'].'"> Modifier </a>';
 					} echo '</td>
 					<td>';
 					$deleteSessions = array($data);
 					foreach ($deleteSessions as $deleteSession) {
-						echo '<a href=""> Annuler </a>';
+						echo '<a href="deleteSession.php?id='.$data['id'].'"> Annuler </a>';
 					} echo '</td>
 				</tr>';
 		} $eachSession->closeCursor();

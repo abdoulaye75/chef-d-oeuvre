@@ -17,6 +17,7 @@
 		$addSession = new SessionCtrl();
 		$addSession->addSession($date, $timeStart, $timeEnd);
 		$addSession->formCreateSession();
+		echo '<a href="reservations.php"> Retour aux tableaux des réservations et séances </a>';
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="views/js/nav.js"></script>

@@ -61,6 +61,35 @@ class SessionView
 	public function confirmAddSession() {
 		echo '<div class="alert successful"><span class="btnclose">&times;</span><strong> Votre séance est bien réservée ! </strong></div>';
 	}
+
+	public function displayFormUpdateSession($id) {
+		while ($data = $id->fetch()) {
+			echo '<form action="" method="post">
+			<input type="hidden" name="id" value="'.$data['id'].'">
+			<label for="date"> Date </label>
+			<input type="text" required name="date" id="date" value="'.$data['dateSession'].'">
+
+			<label for="timeRent"> Heure début </label>
+			<input type="text" required name="timeStart" id="timeRent" value="'.$data['timeStart'].'">
+
+			<label for="timeBack"> Heure de fin </label>
+			<input type="text" required name="timeEnd" id="timeBack" value="'.$data['timeEnd'].'">';
+
+			// <label for="vehicle"> Véhicule souhaité </label>
+			// <select name="vehicle" required>';
+			// while ($data = $vehicle->fetch()) {
+			// 	echo '<option value="'.$data['id'].'">'.$data['brand'].' '.$data['model'].'</option>';
+			// } $vehicle->closeCursor();
+			// echo </select>
+
+			echo '<button type="submit" name="submit"> Mettre à jour cette séance </button>
+		</form>';
+		}
+	}
+
+	public function confirmUpdateSession() {
+		echo '<div class="alert successful"><span class="btnclose">&times;</span><strong>Cette séance a bien été mise à jour !</strong></div>';
+	}
 }
 
 ?>

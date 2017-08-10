@@ -43,6 +43,35 @@ class SessionCtrl
 			}
 		}
 	}
+
+	public function listOneSession() {
+		if (isset($_GET['id'])) {
+			$id = $this->sessionModel->getIdSession();
+			$this->sessionView->displayFormUpdateSession($id);
+		}
+	}
+
+	public function changeSession($id, $date, $timeStart, $timeEnd) {
+		if (isset($_POST['submit'])) {
+			if (isset($_POST['id'], $_POST['date'], $_POST['timeStart'], $_POST['timeEnd'])) {
+				$id = htmlspecialchars($_POST['id']);
+				$date = htmlspecialchars($_POST['date']);
+				$timeStart = htmlspecialchars($_POST['timeStart']);
+				$timeEnd = htmlspecialchars($_POST['timeEnd']);
+
+				$this->sessionModel->updateSession($id, $date, $timeStart, $timeEnd);
+				$this->sessionView->confirmUpdateSession();
+			}
+		}
+	}
+
+	public function deleteSession($id) {
+		if (isset($_GET['id'])) {
+			$id = $_GET['id'];
+			$this->sessionModel->removeSession($id);
+			header('Location: reservations.php');
+		}
+	}
 }
 
 ?>
