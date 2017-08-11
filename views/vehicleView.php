@@ -23,7 +23,7 @@ class VehicleView
 				<div class="content2">
 				<p>'.$data['brand'].' '.$data['model'].'</p>
 				<p>'.$data['description'].'</p>
-				<p>'.$data['number_places'].' places</p>
+				<p>'.$data['numberPlaces'].' places</p>
 				<p>'.$data['year'].'</p>
 				</div>
 			</div>
