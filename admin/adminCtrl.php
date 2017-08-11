@@ -54,6 +54,26 @@ class AdminCtrl
 		}
 	}
 
+	public function formAddVehicle() {
+		$this->adminView->displayFormAdd();
+	}
+
+	public function addVehicle($brand, $model, $type, $description, $numberPlaces, $year) {
+		if (isset($_POST['submit'])) {
+			if (isset($_POST['brand'], $_POST['model'], $_POST['type'], $_POST['description'], $_POST['numberPlaces'], $_POST['year'])) {
+				$brand = htmlspecialchars($_POST['brand']);
+				$model = htmlspecialchars($_POST['model']);
+				$type = htmlspecialchars($_POST['type']);
+				$description = htmlspecialchars($_POST['description']);
+				$numberPlaces = htmlspecialchars($_POST['numberPlaces']);
+				$year = htmlspecialchars($_POST['year']);
+
+				$this->adminModel->createVehicle($brand, $model, $type, $description, $numberPlaces, $year);
+				$this->adminView->confirmAdd();
+			}
+		}
+	}
+
 	public function updateOneVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year) {
 		if (isset($_POST['submit'])) {
 			if (isset($_POST['id'], $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['description'], $_POST['numberPlaces'], $_POST['year'])) {

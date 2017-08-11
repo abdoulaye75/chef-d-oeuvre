@@ -49,6 +49,12 @@ class AdminModel
 		$req->execute(array('id' => $id));
 		return $req;
 	}
+
+	public function createVehicle($brand, $model, $type, $description, $numberPlaces, $year) {
+		$req = $this->bdd->prepare("INSERT INTO vehicles (brand, model, type, description, numberPlaces, year, picture) VALUES (:brand, :model, :type, :description, :numberPlaces, :year, :picture)");
+		$req->execute(array('brand' => $brand, 'model' => $model, 'type' => $type, 'description' => $description, 'numberPlaces' => $numberPlaces, 'year' => $year, 'picture' => 'image'));
+		return $req;
+	}
 }
 
 ?>

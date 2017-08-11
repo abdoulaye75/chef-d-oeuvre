@@ -35,10 +35,12 @@ class AdminView
 				<th> Description </th>
 				<th> Nombre de places </th>
 				<th> Année </th>
-				<th> Image </th>
-				<th> Modifier </th>
-				<th> Supprimer </th>
-			<tr>
+				<th> Image </th>';
+				if (isset($_SESSION['login'], $_SESSION['password'])) {
+				echo '<th> Modifier </th>
+				<th> Supprimer </th>';
+			}
+			echo '<tr>
 		</thead>
 		<tbody>';
 		while ($data = $vehicle->fetch()) {
@@ -49,19 +51,21 @@ class AdminView
 			<td>'.$data['description'].'</td>
 			<td>'.$data['numberPlaces'].'</td>
 			<td>'.$data['year'].'</td>
-			<td><img src="../views/pictures_vehicles/'.$data['picture'].'" alt="'.$data['picture'].'" width="150" height="150"></td>
-			<td>';
+			<td><img src="../views/pictures_vehicles/'.$data['picture'].'" alt="'.$data['picture'].'" width="150" height="150"></td>';
+			if (isset($_SESSION['login'], $_SESSION['password'])) {
+			echo '<td>';
 			$updateVehicles = array($data);
 			foreach ($updateVehicles as $updateVehicle) {
-				echo '<a href="updateVehicle.php?id='.$data['id'].'"> Modifier </a> </td>';
+				echo '<a href="updateVehicle.php?id='.$data['id'].'" class="btn btn-primary"> Modifier </a> </td>';
 			} echo '</td>
 			<td>';
 			$deleteVehicles = array($data);
 			foreach ($deleteVehicles as $deleteVehicle) {
-				echo '<a href="deleteVehicle.php?id='.$data['id'].'"> Supprimer </a> </td>';
+				echo '<a href="deleteVehicle.php?id='.$data['id'].'" class="btn btn-danger"> Supprimer </a> </td>';
 			}
-			echo '</td>
-			</tr>';
+			echo '</td>';
+		}
+			echo '</tr>';
 		} $vehicle->closeCursor();
 		echo'
 		</tbody>
@@ -95,9 +99,38 @@ class AdminView
 		} $vehicle->closeCursor();
 	}
 
+	public function confirmAdd() {
+		echo '<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button> <strong> Véhicule ajouté avec succès !</strong></div>';
+	}
+
 	public function confirmUpdate() {
 		echo '<div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button> <strong> Véhicule modifié avec succès !</strong></div>';
+	}
+
+	public function displayFormAdd() {
+		echo '<form action="" method="post" class="col-md-6">
+				<label for="brand"> Marque : </label>
+				<input type="text" name="brand" id="brand" class="form-control">
+
+				<label for="model"> Modèle : </label>
+				<input type="text" name="model" id="model" class="form-control">
+
+				<label for="type"> Type </label>
+				<input type="text" name="type" id="type" class="form-control">
+
+				<label for="description"> Description </label>
+				<textarea name="description" id="description" class="form-control"></textarea>
+
+				<label for="numberPlaces"> Nombre de places </label>
+				<input type="number" name="numberPlaces" id="numberPlaces" class="form-control">
+
+				<label for="year"> Année </label>
+				<input type="text" name="year" id="year" class="form-control">
+
+				<button type="submit" name="submit" class="btn btn-primary"> Ajouter </button>
+			</form>';
 	}
 }
 

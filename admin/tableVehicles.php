@@ -10,6 +10,11 @@
 <body>
 	<?php require 'navAdmin.php'; ?>
 	<?php require 'adminCtrl.php';
+		session_start();
+		if (isset($_SESSION['login'], $_SESSION['password'])) {
+			echo '<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button> <strong> Connexion réussite, '.$_SESSION['login'].' !</strong></div>';
+		}
 		$vehicle = new AdminCtrl();
 		$vehicle->listVehicles();
 	?>
