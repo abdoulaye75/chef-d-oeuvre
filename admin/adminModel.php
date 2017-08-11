@@ -43,6 +43,12 @@ class AdminModel
 		$req->execute(array('id' => $_GET['id']));
 		return $req;
 	}
+
+	public function removeVehicle($id) {
+		$req = $this->bdd->prepare("DELETE FROM vehicles WHERE id = :id");
+		$req->execute(array('id' => $id));
+		return $req;
+	}
 }
 
 ?>

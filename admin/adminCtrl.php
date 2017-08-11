@@ -70,6 +70,24 @@ class AdminCtrl
 			}
 		}
 	}
+
+	public function deleteVehicle($id) {
+		if (isset($_GET['id'])) {
+			$id = $_GET['id'];
+			$this->adminModel->removeVehicle($id);
+			header('Location: tableVehicles.php');
+		}
+	}
+
+	public function logoutAdmin() {
+		session_start();
+
+		$_SESSION = array();
+
+		session_destroy();
+
+		header("Location: index.php"); // on redirige l'utilisateur vers la page d'accueil
+	}
 }
 
 ?>
