@@ -20,9 +20,9 @@ class AccompagnistModel
         }
 	}
 
-	public function subscribeAccompagnist($name, $firstname, $mail, $login, $password) {
-		$req = $this->bdd->prepare("INSERT INTO monitors (name, firstname, mail, login, password) VALUES (:name, :firstname, :mail, :login, :password)");
-		$req->execute(array('name' => $name, 'firstname' => $firstname, 'mail' => $mail, 'login' => $login, 'password' => $password));
+	public function subscribeAccompagnist($name, $firstname, $login, $password) {
+		$req = $this->bdd->prepare("INSERT INTO monitors (name, firstname, login, password) VALUES (:name, :firstname, :login, :password)");
+		$req->execute(array('name' => $name, 'firstname' => $firstname, 'login' => $login, 'password' => $password));
 		return $req;
 	}
 

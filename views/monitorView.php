@@ -2,13 +2,6 @@
 
 class AccompagnistView
 {
-	public $name = "";
-	public $firstname = "";
-	public $mail = "";
-	public $login = "";
-	public $password = "";
-	public $idSession = "";
-
 	public function __construct()
 	{
 		# code...
@@ -24,9 +17,6 @@ class AccompagnistView
 
 			<label for="firstname"> Prénom: </label>
 			<input type="text" name="firstname" id="firstname" required>
-
-			<label for="mail"> Mail: </label>
-			<input type="email" name="mail" id="mail" required>
 
 			<label for="login"> Identifiant: </label>
 			<input type="text" name="login" id="login" required>

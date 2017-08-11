@@ -21,9 +21,9 @@ class DriverModel
         }
 	}
 
-	public function subscribeDriver($name, $firstname, $mail, $login, $password) {
-		$req = $this->bdd->prepare("INSERT INTO drivers (name, firstname, mail, login, password) VALUES (:name, :firstname, :mail, :login, :password)");
-		$req->execute(array('name' => $name, 'firstname' => $firstname, 'mail' => $mail, 'login' => $login, 'password' => $password));
+	public function subscribeDriver($name, $firstname, $login, $password) {
+		$req = $this->bdd->prepare("INSERT INTO drivers (name, firstname, mail, login, password) VALUES (:name, :firstname, :login, :password)");
+		$req->execute(array('name' => $name, 'firstname' => $firstname, 'login' => $login, 'password' => $password));
 		return $req;
 	}
 

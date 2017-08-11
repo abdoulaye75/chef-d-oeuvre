@@ -18,17 +18,16 @@ class AccompagnistCtrl
 	{
 		$this->monitorView->displaySignupForm();
 		if (isset($_POST['submit'])) {
-			if (isset($_POST['lastname'], $_POST['firstname'], $_POST['mail'], $_POST['login'], $_POST['password'])) {
+			if (isset($_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['password'])) {
 				$name = htmlspecialchars($_POST['lastname']);
 				$firstname = htmlspecialchars($_POST['firstname']);
-				$mail = htmlspecialchars($_POST['mail']);
 				$login = htmlspecialchars($_POST['login']);
 				$password = $_POST['password'];
 
 				session_start();
 				$_SESSION['loginAccompagnist'] = $login;
 				$_SESSION['passwordAccompagnist'] = $password;
-				$this->monitorModel->subscribeAccompagnist($name, $firstname, $mail, $login, $password);
+				$this->monitorModel->subscribeAccompagnist($name, $firstname, $login, $password);
 				header('Location: sessions.php');
 			}
 		}

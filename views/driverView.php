@@ -2,14 +2,6 @@
 
 class Driver
 {
-	public $name = "";
-	public $firstname = "";
-	public $mail = "";
-	public $login = "";
-	public $password = "";
-	public $idSession = "";
-	public $idReservation = "";
-
 	public function __construct()
 	{
 		# code...
@@ -25,9 +17,6 @@ class Driver
 
 			<label for="firstname"> Prénom: </label>
 			<input type="text" name="firstname" id="firstname" required class="form-control">
-
-			<label for="mail"> Mail: </label>
-			<input type="email" name="mail" id="mail" required class="form-control">
 
 			<label for="login"> Identifiant: </label>
 			<input type="text" name="login" id="login" required class="form-control">

@@ -2,9 +2,6 @@
 
 class SettingsView
 {
-	private $login = "";
-	private $password = "";
-
 	public function __construct()
 	{
 		# code...
@@ -15,8 +12,6 @@ class SettingsView
 		echo '<form action="" method="post">
 			<caption> <h2> Modifier mes identifiants </h2> </caption>
 			<input type="hidden" name="id" value="'.$data['id'].'">
-			<label for="mail"> Mail : </label>
-			<input type="email" name="mail" id="name" value="'.$data['mail'].'">
 
 			<label for="login"> Identifiant : </label>
 			<input type="text" name="login" id="login" value="'.$data['login'].'">

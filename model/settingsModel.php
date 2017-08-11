@@ -20,14 +20,14 @@ class SettingsModel
         }
 	}
 
-	public function updateIdentifiersDrivers($id, $mail, $login, $password) {
-		$req = $this->bdd->prepare("UPDATE drivers SET mail = :nvmail, login = :nvlogin, password = :nvpassword WHERE id = :id");
-		$req->execute(array('nvmail' => $mail, 'nvlogin' => $login, 'nvpassword' => $password, 'id' => $id));
+	public function updateIdentifiersDrivers($id, $login, $password) {
+		$req = $this->bdd->prepare("UPDATE drivers SET login = :nvlogin, password = :nvpassword WHERE id = :id");
+		$req->execute(array('nvlogin' => $login, 'nvpassword' => $password, 'id' => $id));
 		return $req;
 	}
 
 	public function getIdDriver() {
-		$req = $this->bdd->prepare("SELECT id, mail, login, password FROM drivers WHERE login = :login");
+		$req = $this->bdd->prepare("SELECT id, login, password FROM drivers WHERE login = :login");
 		$req->execute(array('login' => $_GET['login']));
 		return $req;
 	}
@@ -38,14 +38,14 @@ class SettingsModel
 		return $req;
 	}
 
-	public function updateIdentifiersAccompagnists($id, $mail, $login, $password) {
-		$req = $this->bdd->prepare("UPDATE monitors SET mail = :nvmail, login = :nvlogin, password = :nvpassword WHERE id = :id");
-		$req->execute(array('nvmail' => $mail, 'nvlogin' => $login, 'nvpassword' => $password, 'id' => $id));
+	public function updateIdentifiersAccompagnists($id, $login, $password) {
+		$req = $this->bdd->prepare("UPDATE monitors SET login = :nvlogin, password = :nvpassword WHERE id = :id");
+		$req->execute(array('nvlogin' => $login, 'nvpassword' => $password, 'id' => $id));
 		return $req;
 	}
 
 	public function getIdAccompagnist() {
-		$req = $this->bdd->prepare("SELECT id, mail, login, password FROM monitors WHERE login = :login");
+		$req = $this->bdd->prepare("SELECT id, login, password FROM monitors WHERE login = :login");
 		$req->execute(array('login' => $_GET['login']));
 		return $req;
 	}

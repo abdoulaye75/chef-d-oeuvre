@@ -19,17 +19,16 @@ class DriverCtrl
 	{
 		$this->driverView->displaySignupForm();
 		if (isset($_POST['submit'])) {
-			if (isset($_POST['lastname'], $_POST['firstname'], $_POST['mail'], $_POST['login'], $_POST['password'])) {
+			if (isset($_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['password'])) {
 				$name = htmlspecialchars($_POST['lastname']);
 				$firstname = htmlspecialchars($_POST['firstname']);
-				$mail = htmlspecialchars($_POST['mail']);
 				$login = htmlspecialchars($_POST['login']);
 				$password = $_POST['password'];
 
 				session_start();
 				$_SESSION['login'] = $login;
 				$_SESSION['password'] = $password;
-				$this->driverModel->subscribeDriver($name, $firstname, $mail, $login, $password);
+				$this->driverModel->subscribeDriver($name, $firstname, $login, $password);
 				header('Location: reservations.php');
 			}
 		}

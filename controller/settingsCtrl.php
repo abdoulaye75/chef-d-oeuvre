@@ -21,15 +21,14 @@ class SettingsCtrl
 		}
 	}
 
-	public function updateSettings($id, $mail, $login, $password) {
+	public function updateSettings($id, $login, $password) {
 		if (isset($_POST['submit'])) {
-			if (isset($_POST['id'], $_POST['mail'], $_POST['login'], $_POST['password'])) {
+			if (isset($_POST['id'], $_POST['login'], $_POST['password'])) {
 				$id = htmlspecialchars($_POST['id']);
-				$mail = htmlspecialchars($_POST['mail']);
 				$login = htmlspecialchars($_POST['login']);
 				$password = $_POST['password'];
 
-				$this->settingsModel->updateIdentifiersDrivers($id, $mail, $login, $password);
+				$this->settingsModel->updateIdentifiersDrivers($id, $login, $password);
 				$this->settingsView->confirmUpdateSettings();
 			}
 		}
@@ -57,15 +56,14 @@ class SettingsCtrl
 		}
 	}
 
-	public function updateSettingsAccompagnist($id, $mail, $login, $password) {
+	public function updateSettingsAccompagnist($id, $login, $password) {
 		if (isset($_POST['submit'])) {
-			if (isset($_POST['id'], $_POST['mail'], $_POST['login'], $_POST['password'])) {
+			if (isset($_POST['id'], $_POST['login'], $_POST['password'])) {
 				$id = htmlspecialchars($_POST['id']);
-				$mail = htmlspecialchars($_POST['mail']);
 				$login = htmlspecialchars($_POST['login']);
 				$password = $_POST['password'];
 
-				$this->settingsModel->updateIdentifiersAccompagnists($id, $mail, $login, $password);
+				$this->settingsModel->updateIdentifiersAccompagnists($id, $login, $password);
 				$this->settingsView->confirmUpdateSettings();
 			}
 		}
