@@ -5,6 +5,7 @@
 	<title> Ajouter un nouveau véhicule </title>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/jpg" href="../views/img/rent_car.jpg">
 </head>
 <body>
 	<?php require 'navAdmin.php'; ?>

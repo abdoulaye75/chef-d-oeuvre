@@ -108,6 +108,26 @@ class AdminCtrl
 
 		header("Location: index.php"); // on redirige l'utilisateur vers la page d'accueil
 	}
+
+	public function getOneAdmin() {
+		if (isset($_GET['login'])) {
+			$admin = $this->adminModel->getIdAdmin();
+			$this->adminView->displayFormUpdateLogins($admin);
+		}
+	}
+
+	public function updateOneAdmin($id, $login, $password) {
+		if (isset($_POST['submit'])) {
+			if (isset($_POST['id'], $_POST['login'], $_POST['password'])) {
+				$id = htmlspecialchars($_POST['id']);
+				$login = htmlspecialchars($_POST['login']);
+				$password = htmlspecialchars($_POST['password']);
+
+				$this->adminModel->updateLogins($id, $login, $password);
+				$this->adminView->confirmUpdateLogins();
+			}
+		}
+	}
 }
 
 ?>

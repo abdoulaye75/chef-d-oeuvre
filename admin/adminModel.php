@@ -55,6 +55,18 @@ class AdminModel
 		$req->execute(array('brand' => $brand, 'model' => $model, 'type' => $type, 'description' => $description, 'numberPlaces' => $numberPlaces, 'year' => $year, 'picture' => 'image'));
 		return $req;
 	}
+
+	public function updateLogins($id, $login, $password) {
+		$req = $this->bdd->prepare("UPDATE admins SET login = :nvlogin, password = :nvpassword WHERE id = :id");
+		$req->execute(array('nvlogin' => $login, 'nvpassword' => $password, 'id' => $id));
+		return $req;
+	}
+
+	public function getIdAdmin() {
+		$req = $this->bdd->prepare("SELECT id, login, password FROM admins WHERE login = :login");
+		$req->execute(array('login' => $_GET['login']));
+		return $req;
+	}
 }
 
 ?>
