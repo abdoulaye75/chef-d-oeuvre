@@ -12,12 +12,12 @@ class AdminView
 		echo '<form action="" method="post" class="col-md-6">
 			<div class="form-group">
 				<label for="login"> Identifiant : </label>
-				<input type="text" name="login" id="login" class="form-control">
+				<input type="text" name="login" id="login" class="form-control" required>
 			</div>
 
 			<div class="form-group">
 				<label for="password"> Mot de passe : </label>
-				<input type="password" name="password" id="password" class="form-control">
+				<input type="password" name="password" id="password" class="form-control" required>
 			</div>
 
 			<button type="submit" name="submit" class="btn btn-primary"> Se connecter </button>
@@ -83,32 +83,32 @@ class AdminView
 				
 				<div class="form-group">
 					<label for="brand"> Marque : </label>
-					<input type="text" name="brand" value="'.$data['brand'].'" id="brand" class="form-control">
+					<input type="text" name="brand" value="'.$data['brand'].'" id="brand" class="form-control" required>
 				</div>
 
 				<div class="form-group">
 					<label for="model"> Modèle : </label>
-					<input type="text" name="model" value="'.$data['model'].'" id="model" class="form-control">
+					<input type="text" name="model" value="'.$data['model'].'" id="model" class="form-control" required>
 				</div>
 
 				<div class="form-group">
 					<label for="type"> Type </label>
-					<input type="text" name="type" value="'.$data['type'].'" id="type" class="form-control">
+					<input type="text" name="type" value="'.$data['type'].'" id="type" class="form-control" required>
 				</div>
 
 				<div class="form-group">
 					<label for="description"> Description </label>
-					<textarea name="description" id="description" class="form-control">'.$data['description'].'</textarea>
+					<textarea name="description" id="description" class="form-control" required>'.$data['description'].'</textarea>
 				</div>
 
 				<div class="form-group">
 					<label for="numberPlaces"> Nombre de places </label>
-					<input type="number" name="numberPlaces" value="'.$data['numberPlaces'].'" id="numberPlaces" class="form-control">
+					<input type="number" name="numberPlaces" value="'.$data['numberPlaces'].'" id="numberPlaces" class="form-control" required>
 				</div>
 
 				<div class="form-group">
 					<label for="year"> Année </label>
-					<input type="text" name="year" value="'.$data['year'].'" id="year" class="form-control">
+					<input type="text" name="year" value="'.$data['year'].'" id="year" class="form-control" required>
 				</div>
 
 				<button type="submit" name="submit" class="btn btn-primary"> Mettre à jour </button>
@@ -127,35 +127,41 @@ class AdminView
 	}
 
 	public function displayFormAdd() {
-		echo '<form action="" method="post" class="col-md-6">
+		echo '<form action="" method="post" class="col-md-6" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="brand"> Marque : </label>
-					<input type="text" name="brand" id="brand" class="form-control">
+					<input type="text" name="brand" id="brand" class="form-control" required>
 				</div>
 
 				<div class="form-group">
 					<label for="model"> Modèle : </label>
-					<input type="text" name="model" id="model" class="form-control">
+					<input type="text" name="model" id="model" class="form-control" required>
 				</div>
 
 				<div class="form-group">
 					<label for="type"> Type : </label>
-					<input type="text" name="type" id="type" class="form-control">
+					<input type="text" name="type" id="type" class="form-control" required>
 				</div>
 
 				<div class="form-group">
 					<label for="description"> Description : </label>
-					<textarea name="description" id="description" class="form-control"></textarea>
+					<textarea name="description" id="description" class="form-control" required></textarea>
 				</div>
 
 				<div class="form-group">
 					<label for="numberPlaces"> Nombre de places : </label>
-					<input type="number" name="numberPlaces" id="numberPlaces" class="form-control">
+					<input type="number" name="numberPlaces" id="numberPlaces" class="form-control" required>
 				</div>
 
 				<div class="form-group">
 					<label for="year"> Année : </label>
-					<input type="text" name="year" id="year" class="form-control">
+					<input type="text" name="year" id="year" class="form-control" required>
+				</div>
+
+				<div class="form-group">
+					<label> Télécharger une image : </label>
+            		<input type="hidden" name="MAX_FILE_SIZE" value="20000">
+            		<input type="file" name="image">
 				</div>
 
 				<button type="submit" name="submit" class="btn btn-primary"> Ajouter </button>
