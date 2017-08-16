@@ -72,25 +72,25 @@ class AdminCtrl
 				$tailleMax = 2000000;
   				$extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
 
-  			if ($_FILES['image']['size'] <= $tailleMax) {
-	    		$extensionUpload = strtolower(substr(strrchr($image, '.'), 1));
+	  			if ($_FILES['image']['size'] <= $tailleMax) {
+		    		$extensionUpload = strtolower(substr(strrchr($image, '.'), 1));
 
 
-		    	if (in_array($extensionUpload, $extensionsValides)) {
-				      $chemin = "../views/pictures_vehicles/".$_FILES['image']['name'];
-				      move_uploaded_file($_FILES['image']['tmp_name'], $chemin);
-			    }
+			    	if (in_array($extensionUpload, $extensionsValides)) {
+					      $chemin = "../views/pictures_vehicles/".$_FILES['image']['name'];
+					      move_uploaded_file($_FILES['image']['tmp_name'], $chemin);
+				    }
 
-				$this->adminModel->createVehicle($brand, $model, $type, $description, $numberPlaces, $year, $image);
-				$this->adminView->confirmAdd();
+					$this->adminModel->createVehicle($brand, $model, $type, $description, $numberPlaces, $year, $image);
+					$this->adminView->confirmAdd();
+				}
 			}
 		}
 	}
-}
 
-	public function updateOneVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year) {
+	public function updateOneVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year, $image) {
 		if (isset($_POST['submit'])) {
-			if (isset($_POST['id'], $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['description'], $_POST['numberPlaces'], $_POST['year'])) {
+			if (isset($_POST['id'], $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['description'], $_POST['numberPlaces'], $_POST['year'], $_FILES['image']) && !empty($_FILES['image']['name'])) {
 				$id = htmlspecialchars($_POST['id']);
 				$brand = htmlspecialchars($_POST['brand']);
 				$model = htmlspecialchars($_POST['model']);
@@ -98,9 +98,23 @@ class AdminCtrl
 				$description = htmlspecialchars($_POST['description']);
 				$numberPlaces = htmlspecialchars($_POST['numberPlaces']);
 				$year = htmlspecialchars($_POST['year']);
+				$image = $_FILES['image']['name'];
 
-				$this->adminModel->updateVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year);
-				$this->adminView->confirmUpdate();
+				$tailleMax = 2000000;
+  				$extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+
+	  			if ($_FILES['image']['size'] <= $tailleMax) {
+		    		$extensionUpload = strtolower(substr(strrchr($image, '.'), 1));
+
+
+			    	if (in_array($extensionUpload, $extensionsValides)) {
+					    $chemin = "../views/pictures_vehicles/".$_FILES['image']['name'];
+					    move_uploaded_file($_FILES['image']['tmp_name'], $chemin);
+				    }
+
+					$this->adminModel->updateVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year, $image);
+					$this->adminView->confirmUpdate();
+				}
 			}
 		}
 	}

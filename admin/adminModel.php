@@ -32,9 +32,9 @@ class AdminModel
 		return $req;
 	}
 
-	public function updateVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year) {
-		$req = $this->bdd->prepare("UPDATE vehicles SET brand = :nvbrand, model = :nvmodel, type = :nvtype, description = :nvdescription, numberPlaces = :nvnumberPlaces, year = :nvyear WHERE id = :id");
-		$req->execute(array('nvbrand' => $brand, 'nvmodel' => $model, 'nvtype' => $type, 'nvdescription' => $description, 'nvnumberPlaces' => $numberPlaces, 'nvyear' => $year, 'id' => $id));
+	public function updateVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year, $image) {
+		$req = $this->bdd->prepare("UPDATE vehicles SET brand = :nvbrand, model = :nvmodel, type = :nvtype, description = :nvdescription, numberPlaces = :nvnumberPlaces, year = :nvyear, picture = :nvpicture WHERE id = :id");
+		$req->execute(array('nvbrand' => $brand, 'nvmodel' => $model, 'nvtype' => $type, 'nvdescription' => $description, 'nvnumberPlaces' => $numberPlaces, 'nvyear' => $year, 'nvpicture' => $image, 'id' => $id));
 		return $req;
 	}
 

@@ -53,7 +53,7 @@ class AdminView
 			<td>'.$data['model'].'</td>
 			<td>'.$data['type'].'</td>
 			<td>'.$data['description'].'</td>
-			<td>'.$data['numberPlaces'].'</td>
+			<td>'.$data['numberPlaces'].' places</td>
 			<td>'.$data['year'].'</td>
 			<td><img src="../views/pictures_vehicles/'.$data['picture'].'" alt="'.$data['picture'].'" width="150" height="150"></td>';
 			if (isset($_SESSION['login'], $_SESSION['password'])) {
@@ -78,7 +78,7 @@ class AdminView
 
 	public function displayFormUpdate($vehicle) {
 		while ($data = $vehicle->fetch()) {
-			echo '<form action="" method="post" class="col-md-6">
+			echo '<form action="" method="post" class="col-md-6" enctype="multipart/form-data">
 				<input type="hidden" name="id" value="'.$data['id'].'">
 				
 				<div class="form-group">
@@ -109,6 +109,14 @@ class AdminView
 				<div class="form-group">
 					<label for="year"> Année </label>
 					<input type="text" name="year" value="'.$data['year'].'" id="year" class="form-control" required>
+				</div>
+
+				<div class="form-group">
+					<label> Télécharger de nouveau cette image ou une nouvelle : </label>
+					<img src="../views/pictures_vehicles/'.$data['picture'].'" width="150" height="150">
+					<p>'.$data['picture'].'</p>
+            		<input type="hidden" name="MAX_FILE_SIZE" value="20000">
+            		<input type="file" name="image">
 				</div>
 
 				<button type="submit" name="submit" class="btn btn-primary"> Mettre à jour </button>

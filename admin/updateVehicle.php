@@ -11,7 +11,7 @@
 	<?php require 'navAdmin.php'; ?>
 	<?php require 'adminCtrl.php';
 		$vehicle = new AdminCtrl();
-		$vehicle->updateOneVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year);
+		$vehicle->updateOneVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year, $image);
 		$vehicle->listOneVehicle();
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
