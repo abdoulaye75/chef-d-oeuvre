@@ -39,19 +39,19 @@ class SettingsModel
 	}
 
 	public function updateIdentifiersAccompagnists($id, $login, $password) {
-		$req = $this->bdd->prepare("UPDATE monitors SET login = :nvlogin, password = :nvpassword WHERE id = :id");
+		$req = $this->bdd->prepare("UPDATE accompagnists SET login = :nvlogin, password = :nvpassword WHERE id = :id");
 		$req->execute(array('nvlogin' => $login, 'nvpassword' => $password, 'id' => $id));
 		return $req;
 	}
 
 	public function getIdAccompagnist() {
-		$req = $this->bdd->prepare("SELECT id, login, password FROM monitors WHERE login = :login");
+		$req = $this->bdd->prepare("SELECT id, login, password FROM accompagnists WHERE login = :login");
 		$req->execute(array('login' => $_GET['login']));
 		return $req;
 	}
 
 	public function removeAccompagnist($login) {
-		$req = $this->bdd->prepare("DELETE FROM monitors WHERE login = :login");
+		$req = $this->bdd->prepare("DELETE FROM accompagnists WHERE login = :login");
 		$req->execute(array('login' => $login));
 		return $req;
 	}

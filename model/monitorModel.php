@@ -21,13 +21,13 @@ class AccompagnistModel
 	}
 
 	public function subscribeAccompagnist($name, $firstname, $login, $password) {
-		$req = $this->bdd->prepare("INSERT INTO monitors (name, firstname, login, password) VALUES (:name, :firstname, :login, :password)");
+		$req = $this->bdd->prepare("INSERT INTO accompagnists (name, firstname, login, password) VALUES (:name, :firstname, :login, :password)");
 		$req->execute(array('name' => $name, 'firstname' => $firstname, 'login' => $login, 'password' => $password));
 		return $req;
 	}
 
 	public function connectAccompagnist($login, $password) {
-		$req = $this->bdd->prepare("SELECT login, password FROM monitors WHERE login = :login AND password = :password");
+		$req = $this->bdd->prepare("SELECT login, password FROM accompagnists WHERE login = :login AND password = :password");
 		$req->execute(array('login' => $login, 'password' => $password));
 		return $req;
 	}

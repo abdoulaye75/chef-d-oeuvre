@@ -2,7 +2,7 @@ form {
   width: 50%;
   margin: auto;
   margin-bottom: 50px; }
-  form input {
+  form input, form select {
     width: 100%;
     padding: 7px;
     margin-bottom: 15px; }
