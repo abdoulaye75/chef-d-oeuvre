@@ -20,6 +20,7 @@
 	}
 
 	$sessions = new SessionCtrl();
+	$sessions->changeSessionStatus($id);
 	$sessions->tableSessions();
 
 	?>

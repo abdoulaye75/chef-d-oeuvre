@@ -20,16 +20,15 @@ class ReservationView
 			<input type="text" required name="dateBack" id="dateBack">
 
 			<label for="timeBack"> Heure de fin </label>
-			<input type="text" required name="timeBack" id="timeBack">';
+			<input type="text" required name="timeBack" id="timeBack">
 
-			// <label for="vehicle"> Véhicule souhaité </label>
-			// <select name="vehicle" required>';
-			// while ($data = $vehicle->fetch()) {
-			// 	echo '<option value="'.$data['id'].'">'.$data['brand'].' '.$data['model'].'</option>';
-			// } $vehicle->closeCursor();
-			// echo </select>
-
-			echo '<button type="submit" name="submit"> Louer </button>
+			<label for="vehicle"> Véhicule souhaité </label>
+			<select name="vehicle">';
+			while ($data = $vehicle->fetch()) {
+				echo '<option value="'.$data['id'].'">'.$data['brand'].' '.$data['model'].'</option>';
+			} $vehicle->closeCursor();
+			echo '</select>
+			<button type="submit" name="submit"> Louer </button>
 		</form>';
 	}
 
@@ -51,16 +50,15 @@ class ReservationView
 			<input type="text" required name="dateBack" id="dateBack" value="'.$data['dateBack'].'">
 
 			<label for="timeBack"> Heure de fin </label>
-			<input type="text" required name="timeBack" id="timeBack" value="'.$data['timeBack'].'">';
+			<input type="text" required name="timeBack" id="timeBack" value="'.$data['timeBack'].'">
 
-			// <label for="vehicle"> Véhicule souhaité </label>
-			// <select name="vehicle" required>';
-			// while ($data = $vehicle->fetch()) {
-			// 	echo '<option value="'.$data['id'].'">'.$data['brand'].' '.$data['model'].'</option>';
-			// } $vehicle->closeCursor();
-			// echo </select>
-
-			echo '<button type="submit" name="submit"> Mettre à jour cette location </button>
+			<label for="vehicle"> Véhicule souhaité </label>
+			<select name="vehicle">';
+			while ($data = $vehicle->fetch()) {
+				echo '<option value="'.$data['id'].'">'.$data['brand'].' '.$data['model'].'</option>';
+			} $vehicle->closeCursor();
+			echo '</select>
+			<button type="submit" name="submit"> Mettre à jour cette location </button>
 		</form>';
 		}
 	}

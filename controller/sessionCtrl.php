@@ -28,7 +28,8 @@ class SessionCtrl
 	}
 
 	public function formCreateSession() {
-		$this->sessionView->displayFormAdd();
+		$vehicle = $this->sessionModel->listVehicles();
+		$this->sessionView->displayFormAdd($vehicle);
 	}
 
 	public function addSession($date, $timeStart, $timeEnd) {
@@ -61,6 +62,16 @@ class SessionCtrl
 
 				$this->sessionModel->updateSession($id, $date, $timeStart, $timeEnd);
 				$this->sessionView->confirmUpdateSession();
+			}
+		}
+	}
+
+	public function changeSessionStatus($id) {
+		if (isset($_POST['submit'])) {
+			if (isset($_POST['id'])) {
+				$id = htmlspecialchars($_POST['id']);
+				$this->sessionModel->changeStatus($id);
+				$this->sessionView->confirmAccept();
 			}
 		}
 	}

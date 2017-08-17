@@ -27,14 +27,26 @@ class SessionModel
 	}
 
 	public function createSession($date, $timeStart, $timeEnd) {
-		$req = $this->bdd->prepare("INSERT INTO sessions (dateSession, timeStart, timeEnd) VALUES (:dateSession, :timeStart, :timeEnd)");
-		$req->execute(array('dateSession' => $date, 'timeStart' => $timeStart, 'timeEnd' => $timeEnd));
+		$req = $this->bdd->prepare("INSERT INTO sessions (dateSession, timeStart, timeEnd, status) VALUES (:dateSession, :timeStart, :timeEnd, :status)");
+		$req->execute(array('dateSession' => $date, 'timeStart' => $timeStart, 'timeEnd' => $timeEnd, 'status' => 'Pas encore accepté'));
 		return $req;
 	}
 
 	public function updateSession($id, $date, $timeStart, $timeEnd) {
-		$req = $this->bdd->prepare("UPDATE sessions SET dateSession = :nvdateSession, timeStart = :nvtimeStart, timeEnd = :nvtimeEnd WHERE id = :id");
-		$req->execute(array('nvdateSession' => $date, 'nvtimeStart' => $timeStart, 'nvtimeEnd' => $timeEnd, 'id' => $id));
+		$req = $this->bdd->prepare("UPDATE sessions SET dateSession = :nvdateSession, timeStart = :nvtimeStart, timeEnd = :nvtimeEnd, status = :nvstatus WHERE id = :id");
+		$req->execute(array('nvdateSession' => $date, 'nvtimeStart' => $timeStart, 'nvtimeEnd' => $timeEnd, 'nvstatus' => 'Pas encore accepté', 'id' => $id));
+		return $req;
+	}
+
+	public function changeStatus($id) {
+		$req = $this->bdd->prepare("UPDATE sessions SET status = :nvstatus WHERE id = :id");
+		$req->execute(array('nvstatus' => 'Accepté', 'id' => $id));
+		return $req;
+	}
+
+	public function getStatus($id) {
+		$req = $this->bdd->prepare("SELECT id FROM sessions WHERE id = :id ");
+		$req->execute(array('id' => $id));
 		return $req;
 	}
 
@@ -48,6 +60,12 @@ class SessionModel
 	public function removeSession($id) {
 		$req = $this->bdd->prepare("DELETE FROM sessions WHERE id = :id");
 		$req->execute(array('id' => $id));
+		return $req;
+	}
+
+	public function listVehicles() {
+		$req = $this->bdd->prepare("SELECT * FROM vehicles");
+		$req->execute(array());
 		return $req;
 	}
 }

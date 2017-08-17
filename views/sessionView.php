@@ -19,6 +19,7 @@ class SessionView
 				<th> Date </th>
 				<th> Heure début </th>
 				<th> Heure de fin </th>
+				<th> Statut </th>
 				<th> Accepter </th>
 			</tr>
 		</thead>
@@ -28,22 +29,30 @@ class SessionView
 					<td>'.$data['dateSession'].'</td>
 					<td>'.$data['timeStart'].'</td>
 					<td>'.$data['timeEnd'].'</td>
-					<td> <button> Accepter </button> </td>;
+					<td>'.$data['status'].'</td>
+					<td> <form action="sessions.php" method="post">
+						<input type="hidden" value="'.$data['id'].'" name="id">
+						<button type="submit" name="submit"> Accepter </button> </form>
+					 </td>
 				</tr>';
 		} $eachSession->closeCursor();
 		echo '</tbody>
 		</table>';
 	}
 
+	public function confirmAccept() {
+		echo '<div class="alert successful"><span class="btnclose">&times;</span><strong> Vous avez accepté une séance ! Le jeune conducteur en sera informé à sa connexion ! </strong></div>';
+	}
+
 	public function displayButtonAdd() {
-		echo '<a href="addSession.php"> Réserver une séance de conduite </a>';
+		echo '<a href="addSession.php" class="addSession"> Réserver une séance de conduite </a>';
 	}
 
 	public function displayButtonAddRent() {
-		echo '<a href="addReservation.php"> Louer un véhicule </a>';
+		echo '<a href="addReservation.php" class="addReservation"> Louer un véhicule </a>';
 	}
 
-	public function displayFormAdd() {
+	public function displayFormAdd($vehicle) {
 		echo '<form action="" method="post">
 			<label for="date"> Date </label>
 			<input type="text" required name="date" id="date">
@@ -53,6 +62,12 @@ class SessionView
 
 			<label for="timeEnd"> Heure de fin </label>
 			<input type="text" required name="timeEnd" id="timeEnd">
+
+			<select name="vehicle">';
+			while ($data = $vehicle->fetch()) {
+				echo '<option value="'.$data['id'].'">'.$data['brand'].' '.$data['model'].'</option>';
+			} $vehicle->closeCursor();
+			echo '</select>
 
 			<button type="submit" name="submit"> Réserver cette séance </button>
 		</form>';

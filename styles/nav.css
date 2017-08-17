@@ -54,9 +54,6 @@ header {
     height: 330px;
     background-color: #fff; }
 
-  .navlink, header .navbar ul li .navlink, header .navbar ul .dropdown .dropdown-content a {
-    display: none; }
-
   .navbar ul {
     display: flex;
     flex-direction: column; }

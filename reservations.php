@@ -21,8 +21,10 @@
 	}
 
 	$sessions = new SessionCtrl();
+	echo '<div class="addButtons">';
 	$sessions->displayButtonAddSession();
 	$sessions->displayButtonAddRent();
+	echo '</div>';
 	$reservations = new DriverCtrl();
 	$reservations->tableReservations();
 	$reservations->tableSessions();

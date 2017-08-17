@@ -90,6 +90,7 @@ class Driver
 				<th> Date début </th>
 				<th> Heure début </th>
 				<th> Heure retour </th>
+				<th> Statut </th>
 				<th> Modifier </th>
 				<th> Annuler </th>
 			</tr>
@@ -100,6 +101,7 @@ class Driver
 					<td>'.$data['dateSession'].'</td>
 					<td>'.$data['timeStart'].'</td>
 					<td>'.$data['timeEnd'].'</td>
+					<td>'.$data['status'].'</td>
 					<td>';
 					$updateSessions = array($data);
 					foreach ($updateSessions as $updateSession) {
