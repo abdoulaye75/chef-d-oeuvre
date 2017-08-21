@@ -16,7 +16,7 @@ class AdminCtrl
 
 	public function verifyAdmin($login, $password) {
 		if (isset($_POST['submit'])) {
-			if (isset($_POST['login'], $_POST['password'])) {
+			if (isset($_POST['login'], $_POST['password']) && !empty($_POST['login']) && !empty($_POST['password'])) {
 				$login = htmlspecialchars($_POST['login']);
 				$password = $_POST['password'];
 				$admins = $this->adminModel->getAdmin($login, $password);
@@ -34,6 +34,8 @@ class AdminCtrl
 					}
 					
 				}
+			} else {
+				$this->adminView->emptyInputs();
 			}
 		}
 	}
@@ -60,7 +62,7 @@ class AdminCtrl
 
 	public function addVehicle($brand, $model, $type, $description, $numberPlaces, $year, $image) {
 		if (isset($_POST['submit'])) {
-			if (isset($_POST['brand'], $_POST['model'], $_POST['type'], $_POST['description'], $_POST['numberPlaces'], $_POST['year'], $_FILES['image']) && !empty($_FILES['image']['name'])) {
+			if (isset($_POST['brand'], $_POST['model'], $_POST['type'], $_POST['description'], $_POST['numberPlaces'], $_POST['year'], $_FILES['image']) && !empty($_POST['id']) && !empty($_POST['brand']) && !empty($_POST['model']) && !empty($_POST['type']) && !empty($_POST['description']) && !empty($_POST['numberPlaces']) && !empty($_POST['year']) && !empty($_FILES['image']['name'])) {
 				$brand = htmlspecialchars($_POST['brand']);
 				$model = htmlspecialchars($_POST['model']);
 				$type = htmlspecialchars($_POST['type']);
@@ -84,13 +86,15 @@ class AdminCtrl
 					$this->adminModel->createVehicle($brand, $model, $type, $description, $numberPlaces, $year, $image);
 					$this->adminView->confirmAdd();
 				}
+			} else {
+				$this->adminView->emptyInputs();
 			}
 		}
 	}
 
 	public function updateOneVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year, $image) {
 		if (isset($_POST['submit'])) {
-			if (isset($_POST['id'], $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['description'], $_POST['numberPlaces'], $_POST['year'], $_FILES['image']) && !empty($_FILES['image']['name'])) {
+			if (isset($_POST['id'], $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['description'], $_POST['numberPlaces'], $_POST['year'], $_FILES['image']) && !empty($_POST['id']) && !empty($_POST['brand']) && !empty($_POST['model']) && !empty($_POST['type']) && !empty($_POST['description']) && !empty($_POST['numberPlaces']) && !empty($_POST['year']) && !empty($_FILES['image']['name'])) {
 				$id = htmlspecialchars($_POST['id']);
 				$brand = htmlspecialchars($_POST['brand']);
 				$model = htmlspecialchars($_POST['model']);
@@ -115,6 +119,8 @@ class AdminCtrl
 					$this->adminModel->updateVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year, $image);
 					$this->adminView->confirmUpdate();
 				}
+			} else {
+				$this->adminView->emptyInputs();
 			}
 		}
 	}
@@ -146,13 +152,15 @@ class AdminCtrl
 
 	public function updateOneAdmin($id, $login, $password) {
 		if (isset($_POST['submit'])) {
-			if (isset($_POST['id'], $_POST['login'], $_POST['password'])) {
+			if (isset($_POST['id'], $_POST['login'], $_POST['password']) && !empty($_POST['id']) && !empty($_POST['login']) && !empty($_POST['password'])) {
 				$id = htmlspecialchars($_POST['id']);
 				$login = htmlspecialchars($_POST['login']);
 				$password = htmlspecialchars($_POST['password']);
 
 				$this->adminModel->updateLogins($id, $login, $password);
 				$this->adminView->confirmUpdateLogins();
+			} else {
+				$this->adminView->emptyInputs();
 			}
 		}
 	}

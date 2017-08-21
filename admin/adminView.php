@@ -116,7 +116,7 @@ class AdminView
 					<img src="../views/pictures_vehicles/'.$data['picture'].'" width="150" height="150">
 					<p>'.$data['picture'].'</p>
             		<input type="hidden" name="MAX_FILE_SIZE" value="20000">
-            		<input type="file" name="image">
+            		<input type="file" name="image" required>
 				</div>
 
 				<button type="submit" name="submit" class="btn btn-primary"> Mettre à jour </button>
@@ -169,7 +169,7 @@ class AdminView
 				<div class="form-group">
 					<label> Télécharger une image : </label>
             		<input type="hidden" name="MAX_FILE_SIZE" value="20000">
-            		<input type="file" name="image">
+            		<input type="file" name="image" required>
 				</div>
 
 				<button type="submit" name="submit" class="btn btn-primary"> Ajouter </button>
@@ -199,6 +199,11 @@ class AdminView
 	public function confirmUpdateLogins() {
 		echo '<div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button> <strong> Identifiants modifiés avec succès !</strong></div>';
+	}
+
+	public function emptyInputs() {
+		echo '<div class="alert alert-danger alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button> <strong> Tous les champs sont obligatoires !</strong></div>';
 	}
 }
 
