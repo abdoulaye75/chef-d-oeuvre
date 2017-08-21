@@ -6,7 +6,7 @@ Projet de fin de formation
 #jQuery
 #PHP
 
-Cahier des charges fonctionnelles
+# Cahier des charges fonctionnelles
 User story 1 (5 points de difficultés) : Comme un jeune conducteur je veux pouvoir réserver un rendez-vous pour une séance de conduite afin de me mettre en confiance car je manque d’expérience en conduite
 
 User story 2 (5 points de difficultés) : Comme un jeune conducteur je veux pouvoir louer un véhicule afin de répondre à mes besoins comme un conducteur confirmé (loisirs, déplacements personnels, trajets travail-domicile, déménagements, courses)
@@ -37,7 +37,7 @@ User story 14 (1 point de difficultés) : Comme un administrateur je veux pouvoi
 
 User story 15 (1 point de difficultés) : Comme un administrateur je veux pouvoir supprimer un véhicule dans la liste
 
-Charte graphique :
+# Charte graphique :
 - police de caractère : Dosis
 - couleurs : blanc, noir, vert
 - logo : image où un accord se fait entre un client et un professionnel de location
