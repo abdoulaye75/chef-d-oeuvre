@@ -5,6 +5,7 @@
 	<title> Modifier la location </title>
 	<link rel="stylesheet" type="text/css" href="styles/index.css">
 	<link rel="stylesheet" type="text/css" href="styles/nav.css">
+	<link rel="stylesheet" type="text/css" href="styles/signup.css">
 	<link rel="stylesheet" type="text/css" href="styles/reservations.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">

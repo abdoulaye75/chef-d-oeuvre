@@ -54,16 +54,17 @@ class SessionView
 
 	public function displayFormAdd($vehicle) {
 		echo '<form action="" method="post">
-			<label for="date"> Date </label>
+			<label for="date"> Date : </label>
 			<input type="text" required name="date" id="date">
 
-			<label for="timeStart"> Heure début </label>
+			<label for="timeStart"> Heure début : </label>
 			<input type="text" required name="timeStart" id="timeStart">
 
-			<label for="timeEnd"> Heure de fin </label>
+			<label for="timeEnd"> Heure de fin : </label>
 			<input type="text" required name="timeEnd" id="timeEnd">
 
-			<select name="vehicle">';
+			<label for="vehicle"> Véhicule souhaité : </label>
+			<select name="vehicle" id="vehicle">';
 			while ($data = $vehicle->fetch()) {
 				echo '<option value="'.$data['id'].'">'.$data['brand'].' '.$data['model'].'</option>';
 			} $vehicle->closeCursor();
