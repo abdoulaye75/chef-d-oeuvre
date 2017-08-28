@@ -14,7 +14,7 @@ class SessionCtrl
 		$this->sessionView = new SessionView();
 	}
 
-	public function tableSessions() {
+	public function showTableSessions() {
 		$eachSession = $this->sessionModel->listSessions();
 		$this->sessionView->displayTableSessions($eachSession);
 	}

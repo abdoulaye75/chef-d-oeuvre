@@ -21,7 +21,7 @@
 
 	$sessions = new SessionCtrl();
 	$sessions->changeSessionStatus($id);
-	$sessions->tableSessions();
+	$sessions->showTableSessions();
 
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

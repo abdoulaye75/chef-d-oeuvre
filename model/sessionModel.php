@@ -41,9 +41,9 @@ class SessionModel
 		return $req;
 	}
 
-	public function getIdSession() {
+	public function getIdSession($id) {
 		$req = $this->bdd->connectDatabase()->prepare("SELECT * FROM sessions WHERE id = :id");
-		$req->execute(array('id' => $_GET['id']));
+		$req->execute(array('id' => $id));
 		return $req;
 
 	}

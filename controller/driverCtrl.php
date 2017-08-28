@@ -68,7 +68,7 @@ class DriverCtrl
 	}
 
 	public function tableSessions() {
-		$eachSession = $this->driverModel->listSessions();
+		$eachSession = $this->driverModel->listAllSessions();
 		$this->driverView->displayTableSessions($eachSession);
 	}
 

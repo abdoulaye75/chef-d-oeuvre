@@ -51,7 +51,8 @@ class AdminCtrl
 
 	public function listOneVehicle() {
 		if (isset($_GET['id'])) {
-			$vehicle = $this->adminModel->getIdVehicle();
+			$id = $_GET['id'];
+			$vehicle = $this->adminModel->getIdVehicle($id);
 			$this->adminView->displayFormUpdate($vehicle);
 		}
 	}
@@ -145,7 +146,8 @@ class AdminCtrl
 
 	public function getOneAdmin() {
 		if (isset($_GET['login'])) {
-			$admin = $this->adminModel->getIdAdmin();
+			$login = $_GET['login'];
+			$admin = $this->adminModel->getIdAdmin($login);
 			$this->adminView->displayFormUpdateLogins($admin);
 		}
 	}

@@ -29,9 +29,9 @@ class AdminModel
 		return $req;
 	}
 
-	public function getIdVehicle() {
+	public function getIdVehicle($id) {
 		$req = $this->bdd->connectDatabase()->prepare("SELECT * FROM vehicles WHERE id = :id");
-		$req->execute(array('id' => $_GET['id']));
+		$req->execute(array('id' => $id));
 		return $req;
 	}
 
@@ -53,9 +53,9 @@ class AdminModel
 		return $req;
 	}
 
-	public function getIdAdmin() {
+	public function getIdAdmin($login) {
 		$req = $this->bdd->connectDatabase()->prepare("SELECT id, login, password FROM admins WHERE login = :login");
-		$req->execute(array('login' => $_GET['login']));
+		$req->execute(array('login' => $login));
 		return $req;
 	}
 }

@@ -29,9 +29,9 @@ class ReservationModel
 		return $req;
 	}
 
-	public function getIdReservation() {
+	public function getIdReservation($idReservation) {
 		$req = $this->bdd->connectDatabase()->prepare("SELECT * FROM reservations WHERE id = :id");
-		$req->execute(array('id' => $_GET['id']));
+		$req->execute(array('id' => $idReservation));
 		return $req;
 	}
 

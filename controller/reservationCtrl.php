@@ -36,7 +36,8 @@ class ReservationCtrl
 
 	public function listOneReservation() {
 		if (isset($_GET['id'])) {
-			$id = $this->reservationModel->getIdReservation();
+			$id = $_GET['id'];
+			$id = $this->reservationModel->getIdReservation($id);
 			$this->reservationView->displayFormUpdate($id);
 		}
 	}

@@ -30,7 +30,7 @@ class DriverModel
 		return $req;
 	}
 
-	public function listSessions() {
+	public function listAllSessions() {
 		$req = $this->bdd->connectDatabase()->prepare("SELECT * FROM sessions");
 		$req->execute(array());
 		return $req;
