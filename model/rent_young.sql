@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Jeu 24 Août 2017 à 17:30
+-- Généré le :  Lun 28 Août 2017 à 20:35
 -- Version du serveur :  5.7.19-0ubuntu0.17.04.1
 -- Version de PHP :  7.0.22-0ubuntu0.17.04.1
 
@@ -92,17 +92,15 @@ CREATE TABLE `reservations` (
   `dateRent` varchar(255) NOT NULL,
   `timeRent` varchar(255) NOT NULL,
   `dateBack` varchar(255) NOT NULL,
-  `timeBack` varchar(255) NOT NULL,
-  `idDriver` int(11) NOT NULL,
-  `idVehicle` int(11) NOT NULL
+  `timeBack` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `reservations`
 --
 
-INSERT INTO `reservations` (`id`, `dateRent`, `timeRent`, `dateBack`, `timeBack`, `idDriver`, `idVehicle`) VALUES
-(1, '04/08/17', '10h', '05/08/17', '11h', 1, 3);
+INSERT INTO `reservations` (`id`, `dateRent`, `timeRent`, `dateBack`, `timeBack`) VALUES
+(1, '04/08/17', '10h', '05/08/17', '11h');
 
 -- --------------------------------------------------------
 
@@ -115,18 +113,15 @@ CREATE TABLE `sessions` (
   `dateSession` varchar(255) NOT NULL,
   `timeStart` varchar(255) NOT NULL,
   `timeEnd` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `idDriver` int(11) NOT NULL,
-  `idAccompagnist` int(11) NOT NULL,
-  `idVehicle` int(11) NOT NULL
+  `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `sessions`
 --
 
-INSERT INTO `sessions` (`id`, `dateSession`, `timeStart`, `timeEnd`, `status`, `idDriver`, `idAccompagnist`, `idVehicle`) VALUES
-(2, '29/08/17', '12h', '13h', 'Accepté', 1, 1, 3);
+INSERT INTO `sessions` (`id`, `dateSession`, `timeStart`, `timeEnd`, `status`) VALUES
+(2, '29/08/17', '12h', '13h', 'Accepté');
 
 -- --------------------------------------------------------
 
@@ -190,20 +185,13 @@ ALTER TABLE `drivers`
 -- Index pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idDriver` (`idDriver`),
-  ADD KEY `idDriver_2` (`idDriver`),
-  ADD KEY `idDriver_3` (`idDriver`),
-  ADD KEY `idVehicle` (`idVehicle`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `sessions`
 --
 ALTER TABLE `sessions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idDriver` (`idDriver`),
-  ADD KEY `idAccompagnist` (`idAccompagnist`),
-  ADD KEY `idVehicle` (`idVehicle`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `vehicles`
@@ -245,23 +233,6 @@ ALTER TABLE `sessions`
 --
 ALTER TABLE `vehicles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
---
--- Contraintes pour les tables exportées
---
-
---
--- Contraintes pour la table `accompagnists`
---
-ALTER TABLE `accompagnists`
-  ADD CONSTRAINT `accompagnist_session` FOREIGN KEY (`id`) REFERENCES `sessions` (`idAccompagnist`);
-
---
--- Contraintes pour la table `drivers`
---
-ALTER TABLE `drivers`
-  ADD CONSTRAINT `driver_reservation` FOREIGN KEY (`id`) REFERENCES `reservations` (`idDriver`),
-  ADD CONSTRAINT `driver_session` FOREIGN KEY (`id`) REFERENCES `sessions` (`idDriver`);
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
