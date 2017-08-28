@@ -53,7 +53,7 @@ class SessionView
 	}
 
 	public function displayFormAdd($vehicle) {
-		echo '<form action="" method="post">
+		echo '<form action="addSession.php" method="post">
 			<label for="date"> Date : </label>
 			<input type="text" required name="date" id="date">
 
@@ -80,7 +80,7 @@ class SessionView
 
 	public function displayFormUpdateSession($id) {
 		while ($data = $id->fetch()) {
-			echo '<form action="" method="post">
+			echo '<form action="addSession.php" method="post">
 			<input type="hidden" name="id" value="'.$data['id'].'">
 			<label for="date"> Date </label>
 			<input type="text" required name="date" id="date" value="'.$data['dateSession'].'">

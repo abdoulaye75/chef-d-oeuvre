@@ -9,8 +9,8 @@ class SettingsView
 
 	public function displayFormUpdateSettings($id) {
 		while($data = $id->fetch()) {
-		echo '<form action="" method="post">
-			<caption> <h2> Modifier mes identifiants </h2> </caption>
+		echo '<h2> Modifier mes identifiants </h2>
+		<form action="settings.php?login='.$data['login'].'" method="post">
 			<input type="hidden" name="id" value="'.$data['id'].'">
 
 			<label for="login"> Identifiant : </label>
@@ -34,7 +34,7 @@ class SettingsView
 			<div class="modal-content">
 				<span class="closeModal">&times;</span>
 				<p> Êtes-vous sûr de vouloir supprimer votre compte ? Cette opération est irréversible ! </p>
-				<form action="" method="post">
+				<form action="index.php" method="post">
 					<button class="delete" type="submit" name="unsubscribe" style="background-color: #f44336; color: #fff; border: 1px solid #f44336;"> Supprimer mon compte définitivement </button>
 				</form>
 			</div>

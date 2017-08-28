@@ -44,7 +44,7 @@ class AdminView
 				echo '<th> Modifier </th>
 				<th> Supprimer </th>';
 			}
-			echo '<tr>
+			echo '</tr>
 		</thead>
 		<tbody>';
 		while ($data = $vehicle->fetch()) {
@@ -57,18 +57,16 @@ class AdminView
 			<td>'.$data['year'].'</td>
 			<td><img src="../views/pictures_vehicles/'.$data['picture'].'" alt="'.$data['picture'].'" width="150" height="150"></td>';
 			if (isset($_SESSION['login'], $_SESSION['password'])) {
-			echo '<td>';
-			$updateVehicles = array($data);
-			foreach ($updateVehicles as $updateVehicle) {
-				echo '<a href="updateVehicle.php?id='.$data['id'].'" class="btn btn-primary"> Modifier </a> </td>';
-			} echo '</td>
-			<td>';
-			$deleteVehicles = array($data);
-			foreach ($deleteVehicles as $deleteVehicle) {
-				echo '<a href="deleteVehicle.php?id='.$data['id'].'" class="btn btn-danger"> Supprimer </a> </td>';
+				echo '<td>';
+				$updateVehicles = array($data);
+				foreach ($updateVehicles as $updateVehicle) {
+					echo '<a href="updateVehicle.php?id='.$data['id'].'" class="btn btn-primary"> Modifier </a> </td>';
+				} echo '<td>';
+				$deleteVehicles = array($data);
+				foreach ($deleteVehicles as $deleteVehicle) {
+					echo '<a href="deleteVehicle.php?id='.$data['id'].'" class="btn btn-danger"> Supprimer </a> </td>';
+				}
 			}
-			echo '</td>';
-		}
 			echo '</tr>';
 		} $vehicle->closeCursor();
 		echo'
@@ -78,7 +76,7 @@ class AdminView
 
 	public function displayFormUpdate($vehicle) {
 		while ($data = $vehicle->fetch()) {
-			echo '<form action="" method="post" class="col-md-6" enctype="multipart/form-data">
+			echo '<form action="updateVehicle.php?id='.$data['id'].'" method="post" class="col-md-6" enctype="multipart/form-data">
 				<input type="hidden" name="id" value="'.$data['id'].'">
 				
 				<div class="form-group">
@@ -113,7 +111,7 @@ class AdminView
 
 				<div class="form-group">
 					<label> Télécharger de nouveau cette image ou une nouvelle : </label>
-					<img src="../views/pictures_vehicles/'.$data['picture'].'" width="150" height="150">
+					<img src="../views/pictures_vehicles/'.$data['picture'].'" width="150" height="150" alt="'.$data['picture'].'">
 					<p>'.$data['picture'].'</p>
             		<input type="hidden" name="MAX_FILE_SIZE" value="20000">
             		<input type="file" name="image" required>
@@ -135,7 +133,7 @@ class AdminView
 	}
 
 	public function displayFormAdd() {
-		echo '<form action="" method="post" class="col-md-6" enctype="multipart/form-data">
+		echo '<form action="addVehicle.php" method="post" class="col-md-6" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="brand"> Marque : </label>
 					<input type="text" name="brand" id="brand" class="form-control" required>
@@ -178,8 +176,8 @@ class AdminView
 
 	public function displayFormUpdateLogins($admin) {
 		while ($data = $admin->fetch()) {
-			echo '<form action="" method="post" class="col-md-6">
-				<caption> <h2> Modifier mes identifiants </h2> </caption>
+			echo '<h2> Modifier mes identifiants </h2>
+			<form action="updateLogins.php?login='.$data['login'].'" method="post" class="col-md-6">
 				<input type="hidden" name="id" value="'.$data['id'].'">
 				<div class="form-group">
 					<label for="login"> Identifiant : </label>

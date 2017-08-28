@@ -9,7 +9,7 @@ class ReservationView
 	}
 
 	public function displayFormReservation ($vehicle) {
-		echo '<form action="" method="post">
+		echo '<form action="addReservation.php" method="post">
 			<label for="date"> Date début : </label>
 			<input type="text" required name="date" id="date">
 
@@ -23,7 +23,7 @@ class ReservationView
 			<input type="text" required name="timeBack" id="timeBack">
 
 			<label for="vehicle"> Véhicule souhaité : </label>
-			<select name="vehicle">';
+			<select name="vehicle" id="vehicle">';
 			while ($data = $vehicle->fetch()) {
 				echo '<option value="'.$data['id'].'">'.$data['brand'].' '.$data['model'].'</option>';
 			} $vehicle->closeCursor();
@@ -38,7 +38,7 @@ class ReservationView
 
 	public function displayFormUpdate($id) {
 		while ($data = $id->fetch()) {
-			echo '<form action="" method="post">
+			echo '<form action="updateRent.php?id='.$data['id'].'" method="post">
 			<input type="hidden" name="id" value="'.$data['id'].'">
 			<label for="date"> Date début </label>
 			<input type="text" required name="date" id="date" value="'.$data['dateRent'].'">
@@ -52,15 +52,10 @@ class ReservationView
 			<label for="timeBack"> Heure de fin </label>
 			<input type="text" required name="timeBack" id="timeBack" value="'.$data['timeBack'].'">
 
-			<label for="vehicle"> Véhicule souhaité </label>
-			<select name="vehicle">';
-			while ($data = $vehicle->fetch()) {
-				echo '<option value="'.$data['id'].'">'.$data['brand'].' '.$data['model'].'</option>';
-			} $vehicle->closeCursor();
-			echo '</select>
+			
 			<button type="submit" name="submit"> Mettre à jour cette location </button>
 		</form>';
-		}
+		} $id->closeCursor();
 	}
 
 	public function confirmUpdate() {

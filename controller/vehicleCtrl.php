@@ -17,7 +17,7 @@ class VehicleCtrl
 
 	public function showVehicles() {
 		$eachVehicle = $this->vehicleModel->listVehicles();
-		$this->vehicleView->displayVehicles($eachVehicle)();
+		$this->vehicleView->displayVehicles($eachVehicle);
 	}
 }
 

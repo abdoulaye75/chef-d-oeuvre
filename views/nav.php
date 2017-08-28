@@ -18,20 +18,18 @@
 				<li> <?php echo '<a href="logout.php" class="navlink"> Se déconnecter </a>'; ?> </li>
 			<?php }
 			else { ?> 
-				<div class="dropdown" id="dropdown1">
-					<li> <?php echo '<a href="#" class="navlink dropbtn"> S\'inscrire <i class="material-icons">&#xe5c5;</i> </a>'; ?> </li>
-					<div class="dropdown-content" id="dropdown-content1">
+				
+					<li class="dropdown" id="dropdown1"> <?php echo '<a href="#" class="navlink dropbtn"> S\'inscrire <i class="material-icons">arrow_drop_down</i> </a>'; ?> <div class="dropdown-content" id="dropdown-content1">
 						<a href="signupDriver.php" class="navlink"> Jeune conducteur </a>
 						<a href="signupAccompanist.php" class="navlink"> Accompagnateur </a>
-					</div>
-				</div>
-				<div class="dropdown" id="dropdown2">
-					<li> <?php echo '<a href="#" class="navlink dropbtn"> Se connecter <i class="material-icons">&#xe5c5;</i> </a>'; ?> </li>
-					<div class="dropdown-content" id="dropdown-content2">
+					</div> </li>
+					
+				
+					<li class="dropdown" id="dropdown2"> <?php echo '<a href="#" class="navlink dropbtn"> Se connecter <i class="material-icons">arrow_drop_down</i> </a>'; ?> <div class="dropdown-content" id="dropdown-content2">
 						<a href="loginDriver.php" class="navlink"> Jeune conducteur </a>
 						<a href="loginAccompanist.php" class="navlink"> Accompagnateur </a>
-					</div>
-				</div>
+					</div> </li>
+					
 			<?php } ?>
 		</ul>
 	</nav>
