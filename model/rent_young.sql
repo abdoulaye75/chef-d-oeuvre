@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Lun 28 Août 2017 à 20:35
+-- Généré le :  Mar 29 Août 2017 à 12:24
 -- Version du serveur :  5.7.19-0ubuntu0.17.04.1
 -- Version de PHP :  7.0.22-0ubuntu0.17.04.1
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `accompagnists` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
+  `firstName` varchar(255) NOT NULL,
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -38,7 +38,7 @@ CREATE TABLE `accompagnists` (
 -- Contenu de la table `accompagnists`
 --
 
-INSERT INTO `accompagnists` (`id`, `name`, `firstname`, `login`, `password`) VALUES
+INSERT INTO `accompagnists` (`id`, `name`, `firstName`, `login`, `password`) VALUES
 (1, 'blanc', 'michel', 'michel', 'blanc');
 
 -- --------------------------------------------------------
@@ -69,7 +69,7 @@ INSERT INTO `admins` (`id`, `login`, `password`) VALUES
 CREATE TABLE `drivers` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
+  `firstName` varchar(255) NOT NULL,
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -78,7 +78,7 @@ CREATE TABLE `drivers` (
 -- Contenu de la table `drivers`
 --
 
-INSERT INTO `drivers` (`id`, `name`, `firstname`, `login`, `password`) VALUES
+INSERT INTO `drivers` (`id`, `name`, `firstName`, `login`, `password`) VALUES
 (1, 'dabo', 'abdoulaye', 'abdoulaye', 'paris');
 
 -- --------------------------------------------------------
@@ -137,14 +137,14 @@ CREATE TABLE `vehicles` (
   `description` varchar(255) NOT NULL,
   `numberPlaces` int(11) NOT NULL,
   `year` varchar(255) NOT NULL,
-  `picture` varchar(255) NOT NULL
+  `pictureFilename` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `vehicles`
 --
 
-INSERT INTO `vehicles` (`id`, `brand`, `model`, `type`, `description`, `numberPlaces`, `year`, `picture`) VALUES
+INSERT INTO `vehicles` (`id`, `brand`, `model`, `type`, `description`, `numberPlaces`, `year`, `pictureFilename`) VALUES
 (1, 'fiat', '500', 'mini-citadine', 'Parfait pour une personne seule ou un couple sans enfant. Facile à stationner.', 4, '2016', 'fiat_500.jpeg'),
 (2, 'renault', 'twingo 3', 'mini-citadine', 'Parfait pour une personne seule ou un couple sans enfant. Facile à stationner.', 4, '2016', 'twingo_3.jpeg'),
 (3, 'renault', 'mégane 4', 'compacte', 'Confortable', 5, '2016', 'megane_4.jpeg'),

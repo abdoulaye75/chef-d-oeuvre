@@ -24,7 +24,7 @@ class AdminModel
 	}
 
 	public function updateVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year, $image) {
-		$req = $this->bdd->connectDatabase()->prepare("UPDATE vehicles SET brand = :nvbrand, model = :nvmodel, type = :nvtype, description = :nvdescription, numberPlaces = :nvnumberPlaces, year = :nvyear, picture = :nvpicture WHERE id = :id");
+		$req = $this->bdd->connectDatabase()->prepare("UPDATE vehicles SET brand = :nvbrand, model = :nvmodel, type = :nvtype, description = :nvdescription, numberPlaces = :nvnumberPlaces, year = :nvyear, pictureFilename = :nvpicture WHERE id = :id");
 		$req->execute(array('nvbrand' => $brand, 'nvmodel' => $model, 'nvtype' => $type, 'nvdescription' => $description, 'nvnumberPlaces' => $numberPlaces, 'nvyear' => $year, 'nvpicture' => $image, 'id' => $id));
 		return $req;
 	}
@@ -42,7 +42,7 @@ class AdminModel
 	}
 
 	public function createVehicle($brand, $model, $type, $description, $numberPlaces, $year, $image) {
-		$req = $this->bdd->connectDatabase()->prepare("INSERT INTO vehicles (brand, model, type, description, numberPlaces, year, picture) VALUES (:brand, :model, :type, :description, :numberPlaces, :year, :picture)");
+		$req = $this->bdd->connectDatabase()->prepare("INSERT INTO vehicles (brand, model, type, description, numberPlaces, year, pictureFilename) VALUES (:brand, :model, :type, :description, :numberPlaces, :year, :picture)");
 		$req->execute(array('brand' => $brand, 'model' => $model, 'type' => $type, 'description' => $description, 'numberPlaces' => $numberPlaces, 'year' => $year, 'picture' => $image));
 		return $req;
 	}

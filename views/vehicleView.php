@@ -19,7 +19,7 @@ class VehicleView
 			echo '<div class="container">
 			<div class="type">'.$data['type'].'</div>
 			<div class="content">
-				<div class="content1"><img src="views/pictures_vehicles/'.$data['picture'].'" alt="image du véhicule"></div>
+				<div class="content1"><img src="views/pictures_vehicles/'.$data['pictureFilename'].'" alt="image du véhicule"></div>
 				<div class="content2">
 				<p>'.$data['brand'].' '.$data['model'].'</p>
 				<p>'.$data['description'].'</p>

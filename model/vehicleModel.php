@@ -1,6 +1,6 @@
 <?php
 
-require 'model/.config.php';
+require_once 'model/.config.php';
 
 class VehicleModel
 {

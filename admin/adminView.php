@@ -55,7 +55,7 @@ class AdminView
 			<td>'.$data['description'].'</td>
 			<td>'.$data['numberPlaces'].' places</td>
 			<td>'.$data['year'].'</td>
-			<td><img src="../views/pictures_vehicles/'.$data['picture'].'" alt="'.$data['picture'].'" width="150" height="150"></td>';
+			<td><img src="../views/pictures_vehicles/'.$data['pictureFilename'].'" alt="'.$data['pictureFilename'].'" width="150" height="150"></td>';
 			if (isset($_SESSION['login'], $_SESSION['password'])) {
 				echo '<td>';
 				$updateVehicles = array($data);
@@ -111,8 +111,8 @@ class AdminView
 
 				<div class="form-group">
 					<label> Télécharger de nouveau cette image ou une nouvelle : </label>
-					<img src="../views/pictures_vehicles/'.$data['picture'].'" width="150" height="150" alt="'.$data['picture'].'">
-					<p>'.$data['picture'].'</p>
+					<img src="../views/pictures_vehicles/'.$data['pictureFilename'].'" width="150" height="150" alt="'.$data['pictureFilename'].'">
+					<p>'.$data['pictureF'].'</p>
             		<input type="hidden" name="MAX_FILE_SIZE" value="20000">
             		<input type="file" name="image" required>
 				</div>

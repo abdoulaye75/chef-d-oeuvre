@@ -1,6 +1,6 @@
-<?php
+<?php 
 
-require 'model/.config.php';
+require_once 'model/.config.php';
 
 class DriverModel
 {
@@ -13,7 +13,7 @@ class DriverModel
 	}
 
 	public function subscribeDriver($name, $firstname, $login, $password) {
-		$req = $this->bdd->connectDatabase()->prepare("INSERT INTO drivers (name, firstname, mail, login, password) VALUES (:name, :firstname, :login, :password)");
+		$req = $this->bdd->connectDatabase()->prepare("INSERT INTO drivers (name, firstName, mail, login, password) VALUES (:name, :firstname, :login, :password)");
 		$req->execute(array('name' => $name, 'firstname' => $firstname, 'login' => $login, 'password' => $password));
 		return $req;
 	}

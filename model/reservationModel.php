@@ -1,6 +1,6 @@
 <?php
 
-require 'model/.config.php';
+require_once 'model/.config.php';
 
 class ReservationModel
 {
@@ -12,7 +12,7 @@ class ReservationModel
 	}
 
 	public function createReservation($date, $timeRent, $dateBack, $timeBack) {
-		$req = $this->bdd->connectDatabase()->prepare("INSERT INTO reservations (dateRent, timeRent, dateBack, timeBack) VALUES (:dateRent, :timeRent, :dateBack)");
+		$req = $this->bdd->connectDatabase()->prepare("INSERT INTO reservations (dateRent, timeRent, dateBack, timeBack) VALUES (:dateRent, :timeRent, :dateBack, :timeBack)");
 		$req->execute(array('dateRent' => $date, 'timeRent' => $timeRent, 'dateBack' => $dateBack, 'timeBack' => $timeBack));
 		return $req;
 	}
