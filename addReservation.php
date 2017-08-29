@@ -15,9 +15,9 @@
 <body>
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/reservationCtrl.php';
-		$reservations = new ReservationCtrl();
-		$reservations->addReservation($date, $timeRent, $dateBack, $timeBack);
-		$reservations->formAddReservation();
+		$reservations = new ReservationCtrl(); // classe du contrôleur dans reservationCtrl.php
+		$reservations->addReservation($date, $timeRent, $dateBack, $timeBack); // méthode pour traiter le formulaire et l'ajout dans la base de données
+		$reservations->formAddReservation(); // méthode qui affiche le formulaire de réservation de location
 		echo '<a href="reservations.php"> Retour aux tableaux des réservations et séances </a>';
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

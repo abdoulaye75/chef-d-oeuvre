@@ -15,10 +15,10 @@
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/driverCtrl.php';
 
-	$driverCtrl = new DriverCtrl();
+	$driverCtrl = new DriverCtrl(); // classe du contrôleur dans driverCtrl.php
 
-	$driverCtrl->verifyUser($login, $password);
-	$driverCtrl->signinForm();
+	$driverCtrl->verifyUser($login, $password); // vérification de la concordance des identifiants de connexion
+	$driverCtrl->signinForm(); // méthode pour afficher le formulaire de connexion pour le jeune conducteur
 
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

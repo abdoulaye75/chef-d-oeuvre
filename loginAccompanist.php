@@ -15,10 +15,10 @@
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/monitorCtrl.php';
 
-	$monitorCtrl = new AccompagnistCtrl();
+	$monitorCtrl = new AccompagnistCtrl(); // classe du contrôleur dans monitorCtrl.php
 
-	$monitorCtrl->verifyMonitor($login, $password);
-	$monitorCtrl->monitorSigninForm();
+	$monitorCtrl->verifyMonitor($login, $password); // vérification de la concordance des identifiants de connexion
+	$monitorCtrl->monitorSigninForm(); // méthode pour afficher le formulaire de connexion pour l'accompagnateur
 
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
