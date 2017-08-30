@@ -10,9 +10,9 @@
 <body>
 	<?php require 'navAdmin.php'; ?>
 	<?php require 'adminCtrl.php';
-		$addVehicle = new AdminCtrl();
-		$addVehicle->addVehicle($brand, $model, $type, $description, $numberPlaces, $year, $image);
-		$addVehicle->formAddVehicle();
+		$addVehicle = new AdminCtrl(); // classe du contrôleur adminctrl.php
+		$addVehicle->addVehicle($brand, $model, $type, $description, $numberPlaces, $year, $image); // méthode pour ajouter un véhicule dans la liste et message de confirmation de l'ajout
+		$addVehicle->formAddVehicle(); // méthode pour afficher le formulaire d'ajout
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

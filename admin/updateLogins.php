@@ -10,9 +10,9 @@
 <body>
 	<?php require 'navAdmin.php'; ?>
 	<?php require 'adminCtrl.php';
-		$admin = new AdminCtrl();
-		$admin->updateOneAdmin($id, $login, $password);
-		$admin->getOneAdmin();
+		$admin = new AdminCtrl(); // classe du contrôleur adminctrl.php
+		$admin->updateOneAdmin($id, $login, $password); // méthode pour modifier les identifiants de connexion. Message de confirmation de modification
+		$admin->getOneAdmin(); // méthode pour afficher le formulaire de modification pré-rempli des identifiants de connexion de l'administrateur
 	?>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

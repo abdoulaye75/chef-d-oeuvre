@@ -10,9 +10,9 @@
 <body>
 	<?php require 'navAdmin.php'; ?>
 	<?php require 'adminCtrl.php';
-		$vehicle = new AdminCtrl();
-		$vehicle->updateOneVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year, $image);
-		$vehicle->listOneVehicle();
+		$vehicle = new AdminCtrl(); // classe du contrôleur adminctrl.php
+		$vehicle->updateOneVehicle($id, $brand, $model, $type, $description, $numberPlaces, $year, $image); // méthode pour modifier le véhicule sélectionné
+		$vehicle->listOneVehicle(); // méthode pour afficher le formulaire de modification pré-rempli du véhicule sélectionné
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

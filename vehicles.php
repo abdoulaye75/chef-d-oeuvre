@@ -17,7 +17,8 @@
 <body>
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/vehicleCtrl.php';
-	$vehicles = new VehicleCtrl();
-	$vehicles->showVehicles(); ?>
+	$vehicles = new VehicleCtrl(); // classe qu'on trouve dans vehicleCtrl.php
+	$vehicles->showVehicles(); // méthode qui liste tous les véhicules contenus dans la base données
+	?>
 </body>
 </html>

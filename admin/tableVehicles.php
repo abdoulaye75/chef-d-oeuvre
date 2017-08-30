@@ -11,12 +11,14 @@
 	<?php require 'navAdmin.php'; ?>
 	<?php require 'adminCtrl.php';
 		session_start();
+
+		// message de bienvenue après connexion
 		if (isset($_SESSION['login'], $_SESSION['password'])) {
 			echo '<div class="alert alert-success alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button> <strong> Connexion réussite, '.$_SESSION['login'].' !</strong></div>';
+  <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button> <strong> Connexion réussie, '.$_SESSION['login'].' !</strong></div>';
 		}
-		$vehicle = new AdminCtrl();
-		$vehicle->listVehicles();
+		$vehicle = new AdminCtrl(); // classe qu'on trouve dans adminCtrl.php
+		$vehicle->listVehicles(); // méthode qui affiche le tableau qui liste tous les véhicules
 	?>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

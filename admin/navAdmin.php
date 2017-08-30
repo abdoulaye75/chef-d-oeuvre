@@ -11,6 +11,8 @@
   <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
       <li><a href="tableVehicles.php"> Liste des véhicules </a></li>
+
+      <!-- si l'administrateur est connecté, on a les liens "Ajouter un nouveau véhicule", "Paramètres du compte" et "Se déconnecter" dans le menu. Sinon on a simplement les liens "Liste des véhicules" et "Se connecter" -->
       <?php if (isset($_SESSION['login'], $_SESSION['password'])) { ?>
       <li> <?php echo '<a href="addVehicle.php"> Ajouter un nouveau véhicule </a>'; ?> </li>
     </ul>

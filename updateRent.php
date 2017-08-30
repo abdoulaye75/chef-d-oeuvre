@@ -15,9 +15,9 @@
 <body>
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/reservationCtrl.php';
-		$reservations = new ReservationCtrl();
-		$reservations->changeReservation($id, $date, $timeRent, $dateBack, $timeBack);
-		$reservations->listOneReservation();
+		$reservations = new ReservationCtrl(); // classe qu'on retrouve dans reservationCtrl.php
+		$reservations->changeReservation($id, $date, $timeRent, $dateBack, $timeBack); // méthode pour modifier une location (date, heure)
+		$reservations->listOneReservation(); // méthode pour afficher le formulaire de modification d'une location donnée
 		echo '<a href="reservations.php"> Retour aux tableaux des réservations et des séances </a>';
 	?>
 

@@ -15,9 +15,9 @@
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/driverCtrl.php';
 
-	$driverCtrl = new DriverCtrl();
+	$driverCtrl = new DriverCtrl(); // classe qu'on trouve dans driverCtrl.php
 
-	$driverCtrl->signupForm();
+	$driverCtrl->signupForm(); // méthode pour afficher le formulaire d'inscription, l'ajout du conducteur dans la base de données et la redirection vers la page membre
 
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

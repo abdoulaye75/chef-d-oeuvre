@@ -14,9 +14,9 @@
 <body>
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/monitorCtrl.php';
-		$monitorCtrl = new AccompagnistCtrl();
+		$monitorCtrl = new AccompagnistCtrl(); // classe qu'on trouve dans monitorCtrl.php
 		
-		$monitorCtrl->monitorSignupForm();
+		$monitorCtrl->monitorSignupForm(); // méthode pour afficher le formulaire d'inscription, l'ajout de l'accompagnateur dans la base de données et la redirection vers la page membre
 	?>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

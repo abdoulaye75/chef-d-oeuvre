@@ -17,12 +17,14 @@
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/settingsCtrl.php'; ?>
 	<?php
+		// si le conducteur est connecté, on affiche le formulaire pré-rempli pour modifier ses identifiants de connexion et le bouton pour supprimer son compte
 		if (isset($_SESSION['login'], $_SESSION['password'])) {
 			$settings = new SettingsCtrl();
 			$settings->updateSettings($id, $mail, $login, $password);
 			$settings->listOneDriver();
 			$settings->deleteAccount();
-		} elseif (isset($_SESSION['loginAccompagnist'], $_SESSION['passwordAccompagnist'])) {
+		} // même chose pour l'accompagnateur
+		elseif (isset($_SESSION['loginAccompagnist'], $_SESSION['passwordAccompagnist'])) {
 			$settingsAccompagnist = new SettingsCtrl();
 			$settingsAccompagnist->updateSettingsAccompagnist($id, $mail, $login, $password);
 			$settingsAccompagnist->listOneAccompagnist();

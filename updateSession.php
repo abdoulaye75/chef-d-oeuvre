@@ -15,9 +15,9 @@
 <body>
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/sessionCtrl.php';
-		$sessions = new SessionCtrl();
-		$sessions->changeSession($id, $date, $timeStart, $timeEnd);
-		$sessions->listOneSession();
+		$sessions = new SessionCtrl(); // classe qu'on retrouve dans sessionCtrl.php
+		$sessions->changeSession($id, $date, $timeStart, $timeEnd); // méthode pour modifier une séance (date, heure)
+		$sessions->listOneSession(); // méthode pour afficher le formulaire de modification d'une séance donnée
 		echo '<a href="reservations.php"> Retour aux tableaux des réservations et des séances </a>';
 	?>
 
