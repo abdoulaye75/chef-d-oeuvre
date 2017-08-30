@@ -29,12 +29,16 @@ class SessionView
 					<td>'.$data['dateSession'].'</td>
 					<td>'.$data['timeStart'].'</td>
 					<td>'.$data['timeEnd'].'</td>
-					<td>'.$data['status'].'</td>
-					<td> <form action="sessions.php" method="post">
+					<td>'.$data['status'].'</td>';
+					if ($data['status'] == 'Acceptée') {
+						echo '<td></td>';
+					} elseif ($data['status'] == 'Pas encore accepté') {
+						echo '<td> <form action="sessions.php" method="post">
 						<input type="hidden" value="'.$data['id'].'" name="id">
 						<button type="submit" name="submit"> Accepter </button> </form>
-					 </td>
-				</tr>';
+					 </td>';
+					}
+				echo '</tr>';
 		} $eachSession->closeCursor();
 		echo '</tbody>
 		</table>';
@@ -80,7 +84,7 @@ class SessionView
 
 	public function displayFormUpdateSession($id) {
 		while ($data = $id->fetch()) {
-			echo '<form action="addSession.php" method="post">
+			echo '<form action="updateSession.php?id='.$data['id'].'" method="post">
 			<input type="hidden" name="id" value="'.$data['id'].'">
 			<label for="date"> Date </label>
 			<input type="text" required name="date" id="date" value="'.$data['dateSession'].'">
@@ -105,6 +109,11 @@ class SessionView
 
 	public function confirmUpdateSession() {
 		echo '<div class="alert successful"><span class="btnclose">&times;</span><strong>Cette séance a bien été mise à jour !</strong></div>';
+	}
+
+	// message d'erreur si au moins un champ est vide
+	public function emptyForm() {
+		echo '<div class="alert fail"><span class="btnclose">&times;</span><strong>Tous les champs sont obligatoires !</strong></div>';
 	}
 }
 

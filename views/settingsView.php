@@ -2,11 +2,7 @@
 
 class SettingsView
 {
-	public function __construct()
-	{
-		# code...
-	}
-
+	// formulaire pré-rempli des identifiants de connexion
 	public function displayFormUpdateSettings($id) {
 		while($data = $id->fetch()) {
 		echo '<h2> Modifier mes identifiants </h2>
@@ -24,10 +20,12 @@ class SettingsView
 		} $id->closeCursor();
 	}
 
+	// message de confirmation de la modification des identifiants de connexion
 	public function confirmUpdateSettings() {
-		echo '<div class="alert successful"><span class="btnclose">&times;</span><strong>Vos identifiants ont bien été mis à jour</strong></div>';
+		echo '<div class="alert successful"><span class="btnclose">&times;</span><strong>Vos identifiants ont bien été mis à jour !</strong></div>';
 	}
 
+	// bouton Supprimer mon compte et sa fenêtre modale
 	public function displayButtonUnsubscribe() {
 		echo '<div class="btnRemove"> <button id="myBtn" class="remove"> Supprimer mon compte </button> </div>
 		<div class="modal" id="myModal">
@@ -39,6 +37,11 @@ class SettingsView
 				</form>
 			</div>
 		</div>';
+	}
+
+	// message d'erreur si au moins un champ est vide
+	public function emptyForm() {
+		echo '<div class="alert fail"><span class="btnclose">&times;</span><strong>Tous les champs sont obligatoires !</strong></div>';
 	}
 }
 

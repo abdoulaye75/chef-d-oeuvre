@@ -10,10 +10,11 @@ class SettingsCtrl
 
 	public function __construct()
 	{
-		$this->settingsModel = new SettingsModel();
-		$this->settingsView = new SettingsView();
+		$this->settingsModel = new SettingsModel(); // classe du modèle
+		$this->settingsView = new SettingsView(); // classe de la vue
 	}
 
+	// reprend les informations du conducteur connecté et pré-remplit le formulaire
 	public function listOneDriver() {
 		if (isset($_GET['login'])) {
 			$result = $this->settingsModel->getIdDriver();
@@ -21,6 +22,7 @@ class SettingsCtrl
 		}
 	}
 
+	// méthode qui modifie les identifiants de connexion
 	public function updateSettings($id, $login, $password) {
 		if (isset($_POST['submit'])) {
 			if (isset($_POST['id'], $_POST['login'], $_POST['password'])) {
@@ -28,12 +30,18 @@ class SettingsCtrl
 				$login = htmlspecialchars($_POST['login']);
 				$password = $_POST['password'];
 
-				$this->settingsModel->updateIdentifiersDrivers($id, $login, $password);
-				$this->settingsView->confirmUpdateSettings();
+				if (!empty($id) && !empty($login) && !empty($password)) {
+					$this->settingsModel->updateIdentifiersDrivers($id, $login, $password);
+					$this->settingsView->confirmUpdateSettings();
+				} else {
+					$this->settingsView->emptyForm();
+				}
+				
 			}
 		}
 	}
 
+	// méthode qui supprime le compte du conducteur
 	public function deleteAccount() {
 		$this->settingsView->displayButtonUnsubscribe();
 		if (isset($_GET['login'])) {
@@ -47,8 +55,7 @@ class SettingsCtrl
 		}
 	}
 
-
-
+	// reprend les identifiants de connexion de l'accompagnateur
 	public function listOneAccompagnist() {
 		if (isset($_GET['login'])) {
 			$result = $this->settingsModel->getIdAccompagnist();
@@ -56,6 +63,7 @@ class SettingsCtrl
 		}
 	}
 
+	// méthode qui modifie les identifiants de connexion de l'accompagnateur
 	public function updateSettingsAccompagnist($id, $login, $password) {
 		if (isset($_POST['submit'])) {
 			if (isset($_POST['id'], $_POST['login'], $_POST['password'])) {
@@ -63,12 +71,18 @@ class SettingsCtrl
 				$login = htmlspecialchars($_POST['login']);
 				$password = $_POST['password'];
 
-				$this->settingsModel->updateIdentifiersAccompagnists($id, $login, $password);
-				$this->settingsView->confirmUpdateSettings();
+				if (!empty($id) && !empty($login) && !empty($password)) {
+					$this->settingsModel->updateIdentifiersAccompagnists($id, $login, $password);
+					$this->settingsView->confirmUpdateSettings();
+				} else {
+					$this->settingsView->emptyForm();
+				}
+				
 			}
 		}
 	}
 
+	// méthode qui supprime le compte de l'accompagnateur
 	public function deleteAccountAccompagnist() {
 		$this->settingsView->displayButtonUnsubscribe();
 		if (isset($_GET['login'])) {

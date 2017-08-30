@@ -2,11 +2,6 @@
 
 class AccompagnistView
 {
-	public function __construct()
-	{
-		# code...
-	}
-
 	public function displaySignupForm()
 	{
 		echo '<form action="" method="post">
@@ -44,6 +39,11 @@ class AccompagnistView
 
 	public function noConnect() {
 		echo '<div class="alert fail"><span class="btnclose">&times;</span><strong>Utilisateur inconnu ! Vérifiez bien votre identifiant et votre mot de passe !</strong></div>';
+	}
+
+	// message d'erreur si au moins un champ est vide
+	public function emptyForm() {
+		echo '<div class="alert fail"><span class="btnclose">&times;</span><strong>Tous les champs sont obligatoires !</strong></div>';
 	}
 }
 

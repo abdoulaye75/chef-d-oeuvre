@@ -11,13 +11,13 @@ class DriverCtrl
 
 	public function __construct()
 	{
-		$this->driverModel = new DriverModel();
-		$this->driverView = new Driver();
+		$this->driverModel = new DriverModel(); // classe du modèle
+		$this->driverView = new DriverView(); // classe de la vue
 	}
 
+	// formulaire d'inscription pour le conducteur. Contrôle de saisie côté serveur. Message d'erreur en cas d'erreur de saisie ou de champ vide
 	public function signupForm()
 	{
-		$this->driverView->displaySignupForm();
 		if (isset($_POST['submit'])) {
 			if (isset($_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['password'])) {
 				$name = htmlspecialchars($_POST['lastname']);
@@ -25,19 +25,26 @@ class DriverCtrl
 				$login = htmlspecialchars($_POST['login']);
 				$password = $_POST['password'];
 
-				session_start();
-				$_SESSION['login'] = $login;
-				$_SESSION['password'] = $password;
-				$this->driverModel->subscribeDriver($name, $firstname, $login, $password);
-				header('Location: reservations.php');
+				if (!empty($name) && !empty($firstname) && !empty($login) && !empty($password)) {
+					session_start();
+					$_SESSION['login'] = $login;
+					$_SESSION['password'] = $password;
+					$this->driverModel->subscribeDriver($name, $firstname, $login, $password);
+					header('Location: reservations.php');
+				} else {
+					$this->driverView->emptyForm();
+				}
 			}
 		}
+		$this->driverView->displaySignupForm();
 	}
 
+	// affiche le formulaire de connexion pour le conducteur
 	public function signinForm() {
 		$this->driverView->displayLoginForm();
 	}
 
+	// formulaire de connexion pour le conducteur. Contrôle de saisie côté serveur. Message d'erreur en cas d'erreur de saisie ou de champ vide
 	public function verifyUser($login, $password) {
 		if (isset($_POST['submit'])) {
 			if (isset($_POST['login'], $_POST['password'])) {
@@ -46,32 +53,38 @@ class DriverCtrl
 				$drivers = $this->driverModel->connectDriver($login, $password);
 				$noConnect = $this->driverView->noConnect();
 
-				foreach ($drivers as $driver) {
-					if ($login !== $driver['login'] || $password !== $driver['password']) {
-						$noConnect;
-						header('Location: loginDriver.php');
-					} else {
-						session_start();
-						$_SESSION['login'] = $login;
-						$_SESSION['password'] = $password;
-						header('Location: reservations.php');
+				if (!empty($login) && !empty($password)) {
+					foreach ($drivers as $driver) {
+						if ($login !== $driver['login'] || $password !== $driver['password']) {
+							$noConnect;
+							header('Location: loginDriver.php');
+						} else {
+							session_start();
+							$_SESSION['login'] = $login;
+							$_SESSION['password'] = $password;
+							header('Location: reservations.php');
+						}					
 					}
-					
+				} else {
+					$this->driverView->emptyForm();
 				}
 			}
 		}
 	}
 
+	// méthode pour lister les locations dans un tableau
 	public function tableReservations() {
-		$eachReservation = $this->driverModel->listReservations();
-		$this->driverView->displayTableReservations($eachReservation);
+		$eachReservation = $this->driverModel->listReservations(); // les données en SQL
+		$this->driverView->displayTableReservations($eachReservation); // le tableau
 	}
 
+	// même chose ici mais pour les séances
 	public function tableSessions() {
 		$eachSession = $this->driverModel->listAllSessions();
 		$this->driverView->displayTableSessions($eachSession);
 	}
 
+	// gère la déconnexion
 	public function logout() {
 		session_start();
 
@@ -79,7 +92,7 @@ class DriverCtrl
 
 		session_destroy();
 
-		header("Location: index.php"); // on redirige l'utilisateur vers la page d'accueil
+		header("Location: index.php"); // on redirige le conducteur vers la page d'accueil
 	}
 }
 

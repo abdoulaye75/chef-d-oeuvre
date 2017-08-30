@@ -10,44 +10,54 @@ class SessionCtrl
 
 	public function __construct()
 	{
-		$this->sessionModel = new SessionModel();
-		$this->sessionView = new SessionView();
+		$this->sessionModel = new SessionModel(); // classe du modèle
+		$this->sessionView = new SessionView(); // classe de la vue
 	}
 
+	// méthode pour afficher le tableau des sessions
 	public function showTableSessions() {
 		$eachSession = $this->sessionModel->listSessions();
 		$this->sessionView->displayTableSessions($eachSession);
 	}
 
+	// affiche le bouton Réserver une séance de conduite
 	public function displayButtonAddSession() {
 		$this->sessionView->displayButtonAdd();
 	}
 
+	// affiche le bouton Louer un véhicule
 	public function displayButtonAddRent() {
 		$this->sessionView->displayButtonAddRent();
 	}
 
+	// affiche le formulaire de réservation de séance
 	public function formCreateSession() {
 		$vehicle = $this->sessionModel->listVehicles();
 		$this->sessionView->displayFormAdd($vehicle);
 	}
 
+	// ajoute la séance en base de données
 	public function addSession($date, $timeStart, $timeEnd) {
 		if (isset($_POST['submit'])) {
-			if (isset($_POST['date'], $_POST['timeStart'], $_POST['timeStart'])) {
+			if (isset($_POST['date'], $_POST['timeStart'], $_POST['timeEnd'])) {
 				$date = htmlspecialchars($_POST['date']);
 				$timeStart = htmlspecialchars($_POST['timeStart']);
 				$timeEnd = htmlspecialchars($_POST['timeEnd']);
 
-				$this->sessionModel->createSession($date, $timeStart, $timeEnd);
-				$this->sessionView->confirmAddSession();
+				if (!empty($date) && !empty($timeStart) && !empty($timeEnd)) {
+					$this->sessionModel->createSession($date, $timeStart, $timeEnd);
+					$this->sessionView->confirmAddSession();
+				} else {
+					$this->sessionView->emptyForm();
+				}				
 			}
 		}
 	}
 
 	public function listOneSession() {
 		if (isset($_GET['id'])) {
-			$id = $this->sessionModel->getIdSession();
+			$id = htmlspecialchars($_GET['id']);
+			$id = $this->sessionModel->getIdSession($id);
 			$this->sessionView->displayFormUpdateSession($id);
 		}
 	}
@@ -60,8 +70,13 @@ class SessionCtrl
 				$timeStart = htmlspecialchars($_POST['timeStart']);
 				$timeEnd = htmlspecialchars($_POST['timeEnd']);
 
-				$this->sessionModel->updateSession($id, $date, $timeStart, $timeEnd);
-				$this->sessionView->confirmUpdateSession();
+				if (!empty($id) && !empty($date) && !empty($timeStart) && !empty($timeEnd)) {
+					$this->sessionModel->updateSession($id, $date, $timeStart, $timeEnd);
+					$this->sessionView->confirmUpdateSession();
+				} else {
+					$this->sessionView->emptyForm();
+				}
+				
 			}
 		}
 	}

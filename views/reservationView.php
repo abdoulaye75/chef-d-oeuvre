@@ -61,6 +61,11 @@ class ReservationView
 	public function confirmUpdate() {
 		echo '<div class="alert successful"><span class="btnclose">&times;</span><strong>Cette location a bien été mise à jour !</strong></div>';
 	}
+
+	// message d'erreur si au moins un champ est vide
+	public function emptyForm() {
+		echo '<div class="alert fail"><span class="btnclose">&times;</span><strong>Tous les champs sont obligatoires !</strong></div>';
+	}
 }
 
 ?>

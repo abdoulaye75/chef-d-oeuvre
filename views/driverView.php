@@ -1,12 +1,8 @@
 <?php
 
-class Driver
+class DriverView
 {
-	public function __construct()
-	{
-		# code...
-	}
-
+	// formulaire d'inscription pour le conducteur
 	public function displaySignupForm()
 	{
 		echo '<form action="" method="post">
@@ -28,6 +24,7 @@ class Driver
 		</form>';
 	}
 
+	// formulaire de connexion pour le conducteur
 	public function displayLoginForm() {
 		echo '<form action="" method="post">
 			<h1> Jeune conducteur </h1>
@@ -42,10 +39,17 @@ class Driver
 		</form>';
 	}
 
+	// message d'erreur en cas d'erreur de saisie pour se connecter
 	public function noConnect() {
 		echo '<div class="alert fail"><span class="btnclose">&times;</span><strong>Utilisateur inconnu ! Vérifiez bien votre identifiant et votre mot de passe !</strong></div>';
 	}
 
+	// message d'erreur si au moins un champ est vide
+	public function emptyForm() {
+		echo '<div class="alert fail"><span class="btnclose">&times;</span><strong>Tous les champs sont obligatoires !</strong></div>';
+	}
+
+	// tableau pour lister les locations
 	public function displayTableReservations($eachReservation) {
 		echo '<table>
 		<caption> <h2> Mes réservations de location </h2> </caption>
@@ -82,6 +86,7 @@ class Driver
 		</table>';
 	}
 
+	// tableau qui liste les séances
 	public function displayTableSessions($eachSession) {
 		echo '<table>
 		<caption> <h2> Mes séances de conduite </h2> </caption>
