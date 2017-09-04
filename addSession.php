@@ -15,10 +15,15 @@
 <body>
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/sessionCtrl.php';
+	if (isset($_SESSION['login'], $_SESSION['password'])) {
 		$addSession = new SessionCtrl(); // classe du contrôleur dans sessionCtrl.php
 		$addSession->addSession($date, $timeStart, $timeEnd); // méthode pour traiter le formulaire et l'ajout dans la base de données
 		$addSession->formCreateSession(); // méthode qui affiche le formulaire de réservation de séance de conduite
 		echo '<a href="reservations.php"> Retour aux tableaux des réservations et séances </a>';
+	} else {
+		header('Location: loginDriver.php');
+	}
+
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="views/js/nav.js"></script>

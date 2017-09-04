@@ -18,16 +18,19 @@
 	<?php session_start();
 	 if (isset($_SESSION['login'], $_SESSION['password'])) {
 		echo '<div class="alert successful"><span class="btnclose">&times;</span><strong> Bienvenue, '.$_SESSION['login'].' !</strong></div>';
+
+		$sessions = new SessionCtrl();
+		echo '<div class="addButtons">';
+		$sessions->displayButtonAddSession();
+		$sessions->displayButtonAddRent();
+		echo '</div>';
+		$reservations = new DriverCtrl();
+		$reservations->tableReservations();
+		$reservations->tableSessions();
+	} else {
+		header('Location: loginDriver.php');
 	}
 
-	$sessions = new SessionCtrl();
-	echo '<div class="addButtons">';
-	$sessions->displayButtonAddSession();
-	$sessions->displayButtonAddRent();
-	echo '</div>';
-	$reservations = new DriverCtrl();
-	$reservations->tableReservations();
-	$reservations->tableSessions();
 	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="views/js/nav.js"></script>

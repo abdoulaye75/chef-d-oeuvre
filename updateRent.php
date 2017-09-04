@@ -15,10 +15,15 @@
 <body>
 	<?php require 'views/nav.php'; ?>
 	<?php require 'controller/reservationCtrl.php';
+	if (isset($_SESSION['login'], $_SESSION['password'])) {
 		$reservations = new ReservationCtrl(); // classe qu'on retrouve dans reservationCtrl.php
 		$reservations->changeReservation($id, $date, $timeRent, $dateBack, $timeBack); // méthode pour modifier une location (date, heure)
 		$reservations->listOneReservation(); // méthode pour afficher le formulaire de modification d'une location donnée
 		echo '<a href="reservations.php"> Retour aux tableaux des réservations et des séances </a>';
+	} else {
+		header('Location: loginDriver.php');
+	}
+
 	?>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
