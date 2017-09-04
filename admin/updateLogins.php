@@ -10,9 +10,14 @@
 <body>
 	<?php require 'navAdmin.php'; ?>
 	<?php require 'adminCtrl.php';
-		$admin = new AdminCtrl(); // classe du contrôleur adminctrl.php
-		$admin->updateOneAdmin($id, $login, $password); // méthode pour modifier les identifiants de connexion. Message de confirmation de modification
-		$admin->getOneAdmin(); // méthode pour afficher le formulaire de modification pré-rempli des identifiants de connexion de l'administrateur
+		if (isset($_SESSION['login'], $_SESSION['password'])) {
+			$admin = new AdminCtrl(); // classe du contrôleur adminctrl.php
+			$admin->updateOneAdmin($id, $login, $password); // méthode pour modifier les identifiants de connexion. Message de confirmation de modification
+			$admin->getOneAdmin(); // méthode pour afficher le formulaire de modification pré-rempli des identifiants de connexion de l'administrateur
+		} else {
+			header('Location: index.php');
+		}
+		
 	?>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
