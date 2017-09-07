@@ -28,7 +28,7 @@ class SettingsCtrl
 			if (isset($_POST['id'], $_POST['login'], $_POST['password'])) {
 				$id = htmlspecialchars($_POST['id']);
 				$login = htmlspecialchars($_POST['login']);
-				$password = $_POST['password'];
+				$password = sha1($_POST['password']);
 
 				if (!empty($id) && !empty($login) && !empty($password)) {
 					$this->settingsModel->updateIdentifiersDrivers($id, $login, $password);
@@ -69,7 +69,7 @@ class SettingsCtrl
 			if (isset($_POST['id'], $_POST['login'], $_POST['password'])) {
 				$id = htmlspecialchars($_POST['id']);
 				$login = htmlspecialchars($_POST['login']);
-				$password = $_POST['password'];
+				$password = sha1($_POST['password']);
 
 				if (!empty($id) && !empty($login) && !empty($password)) {
 					$this->settingsModel->updateIdentifiersAccompagnists($id, $login, $password);

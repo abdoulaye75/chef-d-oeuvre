@@ -19,7 +19,7 @@
 		$addSession = new SessionCtrl(); // classe du contrôleur dans sessionCtrl.php
 		$addSession->addSession($date, $timeStart, $timeEnd); // méthode pour traiter le formulaire et l'ajout dans la base de données
 		$addSession->formCreateSession(); // méthode qui affiche le formulaire de réservation de séance de conduite
-		echo '<a href="reservations.php"> Retour aux tableaux des réservations et séances </a>';
+		echo '<a href="reservations.php" class="back"> Retour aux tableaux des réservations et séances </a>';
 	} else {
 		header('Location: loginDriver.php');
 	}

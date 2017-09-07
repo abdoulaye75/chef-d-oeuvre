@@ -20,7 +20,7 @@ class AdminCtrl
 		if (isset($_POST['submit'])) {
 			if (isset($_POST['login'], $_POST['password']) && !empty($_POST['login']) && !empty($_POST['password'])) {
 				$login = htmlspecialchars($_POST['login']);
-				$password = $_POST['password'];
+				$password = sha1($_POST['password']);
 				$admins = $this->adminModel->getAdmin($login, $password);
 				$noConnect = $this->adminView->noConnect();
 
@@ -174,7 +174,7 @@ class AdminCtrl
 			if (isset($_POST['id'], $_POST['login'], $_POST['password']) && !empty($_POST['id']) && !empty($_POST['login']) && !empty($_POST['password'])) {
 				$id = htmlspecialchars($_POST['id']);
 				$login = htmlspecialchars($_POST['login']);
-				$password = htmlspecialchars($_POST['password']);
+				$password = sha1($_POST['password']);
 
 				$this->adminModel->updateLogins($id, $login, $password);
 				$this->adminView->confirmUpdateLogins();

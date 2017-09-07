@@ -57,4 +57,13 @@ table {
     margin-top: 10px;
     border-radius: 8px; }
 
+.back {
+  color: #fff;
+  background-color: #467D9A;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px; }
+
 /*# sourceMappingURL=reservations.css.map */

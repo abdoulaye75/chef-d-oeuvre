@@ -23,7 +23,7 @@ class DriverCtrl
 				$name = htmlspecialchars($_POST['lastname']);
 				$firstname = htmlspecialchars($_POST['firstname']);
 				$login = htmlspecialchars($_POST['login']);
-				$password = $_POST['password'];
+				$password = sha1($_POST['password']);
 
 				if (!empty($name) && !empty($firstname) && !empty($login) && !empty($password)) {
 					session_start();
@@ -49,7 +49,7 @@ class DriverCtrl
 		if (isset($_POST['submit'])) {
 			if (isset($_POST['login'], $_POST['password'])) {
 				$login = htmlspecialchars($_POST['login']);
-				$password = $_POST['password'];
+				$password = sha1($_POST['password']);
 				$drivers = $this->driverModel->connectDriver($login, $password);
 				$noConnect = $this->driverView->noConnect();
 
