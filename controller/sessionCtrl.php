@@ -93,7 +93,7 @@ class SessionCtrl
 
 	public function deleteSession($id) {
 		if (isset($_GET['id'])) {
-			$id = $_GET['id'];
+			$id = htmlspecialchars($_GET['id']);
 			$this->sessionModel->removeSession($id);
 			header('Location: reservations.php');
 		}

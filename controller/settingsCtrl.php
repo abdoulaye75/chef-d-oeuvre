@@ -46,7 +46,7 @@ class SettingsCtrl
 		$this->settingsView->displayButtonUnsubscribe();
 		if (isset($_GET['login'])) {
 			if (isset($_POST['unsubscribe'])) {
-				$login = $_GET['login'];
+				$login = htmlspecialchars($_GET['login']);
 				$this->settingsModel->removeDriver($login);
 				$_SESSION = array();
     			session_destroy();
@@ -87,7 +87,7 @@ class SettingsCtrl
 		$this->settingsView->displayButtonUnsubscribe();
 		if (isset($_GET['login'])) {
 			if (isset($_POST['unsubscribe'])) {
-				$login = $_GET['login'];
+				$login = htmlspecialchars($_GET['login']);
 				$this->settingsModel->removeAccompagnist($login);
 				$_SESSION = array();
     			session_destroy();
