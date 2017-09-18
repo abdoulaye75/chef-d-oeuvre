@@ -56,7 +56,7 @@ class AdminCtrl
 	// affiche le véhicule sélectionné par l'administrateur dans la page updateVehicle.php?id=, d'où le $_GET['id']
 	public function listOneVehicle() {
 		if (isset($_GET['id'])) {
-			$id = $_GET['id'];
+			$id = htmlspecialchars($_GET['id']);
 			$vehicle = $this->adminModel->getIdVehicle($id);
 			$this->adminView->displayFormUpdate($vehicle);
 		}
@@ -142,7 +142,7 @@ class AdminCtrl
 	// supprime un véhicule sélectionné par l'administrateur dans la page deleteVehicle.php?id=, d'où le $_GET['id']. On reste en fait sur la même page
 	public function deleteVehicle($id) {
 		if (isset($_GET['id'])) {
-			$id = $_GET['id']; // la valeur du paramètre id dans la query string est l'id du véhicule sélectionné
+			$id = htmlspecialchars($_GET['id']); // la valeur du paramètre id dans la query string est l'id du véhicule sélectionné
 			$this->adminModel->removeVehicle($id); // cette variable correspond à la requête DELETE FROM vehicle WHERE id = :id en SQL
 			header('Location: tableVehicles.php');
 		}
@@ -162,7 +162,7 @@ class AdminCtrl
 	// il pré-remplit le formulaire de modification des identifiants de connexion dans la page updateLogins.php?login=, d'où le $_GET['login']
 	public function getOneAdmin() {
 		if (isset($_GET['login'])) {
-			$login = $_GET['login']; // la valeur du paramètre login dans la query string est le login de l'administrateur
+			$login = htmlspecialchars($_GET['login']); // la valeur du paramètre login dans la query string est le login de l'administrateur
 			$admin = $this->adminModel->getIdAdmin($login); // cette variable correspond à la requête SELECT login en SQL
 			$this->adminView->displayFormUpdateLogins($admin);
 		}
