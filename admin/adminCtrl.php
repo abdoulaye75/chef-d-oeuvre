@@ -56,7 +56,7 @@ class AdminCtrl
 	// affiche le véhicule sélectionné par l'administrateur dans la page updateVehicle.php?id=, d'où le $_GET['id']
 	public function listOneVehicle() {
 		if (isset($_GET['id'])) {
-			$id = $_GET['id'];
+			$id = htmlspecialchars($_GET['id']);
 			$vehicle = $this->adminModel->getIdVehicle($id);
 			$this->adminView->displayFormUpdate($vehicle);
 		}
