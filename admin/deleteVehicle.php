@@ -8,6 +8,9 @@ if (isset($_SESSION['login'], $_SESSION['password'])) {
 } else {
 	header('Location: index.php');
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 72176b685720e70276bdefe836aee81325bb2883
 
 ?>
